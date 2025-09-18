@@ -2,8 +2,10 @@ Diplomatura de Estudio en Business Analytics 2025-01 de la PUCP
 
 Curso: 
   - Building Cloud Business Applications
+
 Empresa:
   - Mundo de patas
+
 Equipo:
   - Grupo IV
 
