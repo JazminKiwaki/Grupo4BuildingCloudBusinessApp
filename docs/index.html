@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Case - Mundo de Patas - Grupo IV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2E86C1 0%, #1B4F72 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .team-info {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #2E86C1;
+            border-bottom: 3px solid #2E86C1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .section h3 {
+            color: #D35400;
+            margin: 20px 0 15px 0;
+            font-size: 1.3em;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .image-item {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .image-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+        
+        .image-item h4 {
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        
+        .image-item p {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        
+        .file-links {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .file-links h4 {
+            color: #495057;
+            margin-bottom: 10px;
+        }
+        
+        .file-links a {
+            display: inline-block;
+            margin: 5px 10px 5px 0;
+            padding: 8px 15px;
+            background: #2E86C1;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        
+        .file-links a:hover {
+            background: #1B4F72;
+        }
+        
+        .architecture-diagram {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .architecture-diagram img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #2E86C1;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .tech-tag {
+            background: #2E86C1;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Business Case: Mundo de Patas</h1>
+            <p class="subtitle">Diplomatura de Estudio en Business Analytics 2025-01 - PUCP</p>
+            <p class="subtitle">Curso: Building Cloud Business Applications</p>
+            
+            <div class="team-info">
+                <h3>Grupo IV</h3>
+                <div class="team-members">
+                    <div>• Ronny López Bautista</div>
+                    <div>• Arisa Jave Valera</div>
+                    <div>• Eymi Loayza Garcia</div>
+                    <div>• Jazmin Naid Kiwaki Alvarez</div>
+                    <div>• Rosmery Huaqui Ayala</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTRODUCCIÓN -->
+        <div class="section">
+            <h2>Introducción del Proyecto</h2>
+            <p>Este proyecto presenta el desarrollo de una solución integral de Business Intelligence para la empresa "Mundo de Patas", implementando una arquitectura cloud moderna utilizando las herramientas de Microsoft Azure y Power Platform.</p>
+            
+            <h3>Sobre Mundo de Patas</h3>
+            <p>Mundo de Patas es una empresa dedicada al cuidado y bienestar de mascotas, que requería modernizar sus procesos de gestión de datos y análisis de negocio para mejorar la toma de decisiones estratégicas.</p>
+            
+            <h3>Objetivos del Proyecto</h3>
+            <p>Implementar una solución end-to-end que permita la captura, procesamiento, almacenamiento y visualización de datos empresariales, utilizando tecnologías cloud de Microsoft para garantizar escalabilidad y eficiencia operativa.</p>
+        </div>
+
+        <!-- CAPA DE DATOS -->
+        <div class="section">
+            <h2>Capa de Datos</h2>
+            <p><strong>Base de Datos Relacional con Azure SQL</strong></p>
+            <p>La capa de datos constituye la base fundamental de nuestro sistema, implementada con Azure SQL Database para garantizar alta disponibilidad, seguridad y escalabilidad.</p>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">Azure SQL Database</span>
+                <span class="tech-tag">Transact-SQL</span>
+                <span class="tech-tag">Modelado Relacional</span>
+            </div>
+
+            <div class="image-gallery">
+                <div class="image-item">
+                    <img src="imagenes/Diagrama_ER.jpg" alt="Diagrama Entidad-Relación">
+                    <h4>Diagrama Entidad-Relación</h4>
+                    <p>Estructura de la base de datos relacional con las entidades principales del negocio</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Retirar.jpg" alt="Proceso de Retiro">
+                    <h4>Proceso de Retiro</h4>
+                    <p>Flujo de datos para el proceso de retiro de mascotas</p>
+                </div>
+            </div>
+
+            <div class="file-links">
+                <h4>Archivos Relacionados:</h4>
+                <a href="archivos/Creacion_tablas.txt" target="_blank">📄 Creación de Tablas</a>
+                <a href="archivos/insercion_datos_tablas_maestras.sql" target="_blank">🗃️ Inserción Datos Maestros</a>
+                <a href="archivos/insercion_datos_tablas_transaccionales.zip" target="_blank">📦 Datos Transaccionales</a>
+            </div>
+        </div>
+
+        <!-- CAPA DE APLICACIÓN -->
+        <div class="section">
+            <h2>Capa de Aplicación</h2>
+            <p><strong>Ingreso de Datos con Microsoft Power Apps</strong></p>
+            <p>Desarrollo de aplicaciones móviles y web para la captura eficiente de datos operativos, permitiendo a los usuarios interactuar de manera intuitiva con el sistema.</p>
+
+            <div class="tech-stack">
+                <span class="tech-tag">Microsoft Power Apps</span>
+                <span class="tech-tag">Canvas Apps</span>
+                <span class="tech-tag">Model-driven Apps</span>
+                <span class="tech-tag">Power Platform</span>
+            </div>
+
+            <div class="image-gallery">
+                <div class="image-item">
+                    <img src="imagenes/Diagrama_Flujo.jpg" alt="Diagrama de Flujo">
+                    <h4>Diagrama de Flujo de la Aplicación</h4>
+                    <p>Flujo de navegación y procesos en Power Apps</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Pantalla_Principal.jpg" alt="Pantalla Principal">
+                    <h4>Pantalla Principal</h4>
+                    <p>Interfaz principal de la aplicación Power Apps</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Gestion_Cliente.jpg" alt="Gestión de Clientes">
+                    <h4>Gestión de Clientes</h4>
+                    <p>Módulo para administración de información de clientes</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Gestion_Venta.jpg" alt="Gestión de Ventas">
+                    <h4>Gestión de Ventas</h4>
+                    <p>Sistema de registro y seguimiento de ventas</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Gestion_Producto.jpg" alt="Gestión de Productos">
+                    <h4>Gestión de Productos</h4>
+                    <p>Catálogo y administración de productos y servicios</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Gestion_Pago.jpg" alt="Gestión de Pagos">
+                    <h4>Gestión de Pagos</h4>
+                    <p>Módulo de procesamiento y seguimiento de pagos</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Gestion_Envio.jpg" alt="Gestión de Envíos">
+                    <h4>Gestión de Envíos</h4>
+                    <p>Sistema de logística y seguimiento de entregas</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIAGRAMA DE ARQUITECTURA -->
+        <div class="section">
+            <h2>Diagrama de Arquitectura</h2>
+            <p>Arquitectura completa de la solución cloud implementada, mostrando la integración entre todas las capas y servicios de Microsoft Azure.</p>
+
+            <div class="architecture-diagram">
+                <img src="imagenes/Diagrama_de_arquitectura.jpg" alt="Diagrama de Arquitectura Completa">
+            </div>
+
+            <p>La arquitectura presenta un diseño modular y escalable que integra servicios de Azure para crear una solución empresarial robusta, desde la captura de datos hasta la presentación de insights de negocio.</p>
+        </div>
+
+        <!-- CAPA DE EXTRACCIÓN -->
+        <div class="section">
+            <h2>Capa de Extracción, Transformación y Carga (ETL)</h2>
+            <p><strong>ETL y Notebooks con Python en Fabric Data Factory</strong></p>
+            <p>Implementación de procesos ETL automatizados utilizando Microsoft Fabric Data Factory y notebooks de Python para la extracción, transformación y carga de datos desde múltiples fuentes.</p>
+
+            <div class="tech-stack">
+                <span class="tech-tag">Microsoft Fabric</span>
+                <span class="tech-tag">Data Factory</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Jupyter Notebooks</span>
+                <span class="tech-tag">Pipeline ETL</span>
+            </div>
+
+            <div class="image-gallery">
+                <div class="image-item">
+                    <img src="imagenes/Flujo_de_datos.jpg" alt="Flujo de Datos">
+                    <h4>Flujo de Datos ETL</h4>
+                    <p>Proceso completo de extracción y transformación de datos</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/PipelineETL_Zoom1.jpg" alt="Pipeline ETL Zoom 1">
+                    <h4>Pipeline ETL - Vista General</h4>
+                    <p>Configuración del pipeline principal de datos</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/PipelineETL_Zoom2.jpg" alt="Pipeline ETL Zoom 2">
+                    <h4>Pipeline ETL - Transformaciones</h4>
+                    <p>Detalle de las transformaciones de datos</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/PipelineETL_Zoom3.jpg" alt="Pipeline ETL Zoom 3">
+                    <h4>Pipeline ETL - Validaciones</h4>
+                    <p>Procesos de validación y calidad de datos</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Pipeline_ETL.jpg" alt="Pipeline ETL Completo">
+                    <h4>Pipeline ETL Completo</h4>
+                    <p>Flujo completo del proceso ETL implementado</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Notebook_1.jpg" alt="Notebook Python 1">
+                    <h4>Notebook Python - Extracción</h4>
+                    <p>Código Python para extracción de datos</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Notebook_2.jpg" alt="Notebook Python 2">
+                    <h4>Notebook Python - Transformación</h4>
+                    <p>Algoritmos de transformación y limpieza</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Correo_respuesta.jpg" alt="Sistema de Notificaciones">
+                    <h4>Sistema de Notificaciones</h4>
+                    <p>Automatización de respuestas y notificaciones</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CAPA DE ALMACÉN -->
+        <div class="section">
+            <h2>Capa de Almacén de Datos</h2>
+            <p><strong>Data Warehouse con Fabric Warehouse y Automatización con Power Automate</strong></p>
+            <p>Implementación de un data warehouse moderno utilizando Microsoft Fabric Warehouse, integrado con Power Automate para la automatización de procesos y flujos de trabajo.</p>
+
+            <div class="tech-stack">
+                <span class="tech-tag">Microsoft Fabric Warehouse</span>
+                <span class="tech-tag">Power Automate</span>
+                <span class="tech-tag">Data Warehouse</span>
+                <span class="tech-tag">Automatización</span>
+            </div>
+
+            <div class="image-gallery">
+                <div class="image-item">
+                    <img src="imagenes/Capa-de-almacen-de-datos.jpg" alt="Arquitectura del Data Warehouse">
+                    <h4>Arquitectura del Data Warehouse</h4>
+                    <p>Estructura del almacén de datos implementado</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Power_Automate1.jpg" alt="Power Automate Flow 1">
+                    <h4>Flujo de Automatización 1</h4>
+                    <p>Proceso automatizado de carga de datos</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Power_Automate2.jpg" alt="Power Automate Flow 2">
+                    <h4>Flujo de Automatización 2</h4>
+                    <p>Automatización de notificaciones y alertas</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CAPA DE PRESENTACIÓN -->
+        <div class="section">
+            <h2>Capa de Presentación</h2>
+            <p><strong>Reportes con Microsoft Power BI Service</strong></p>
+            <p>Desarrollo de dashboards interactivos y reportes ejecutivos utilizando Power BI Service, proporcionando insights valiosos para la toma de decisiones empresariales.</p>
+
+            <div class="tech-stack">
+                <span class="tech-tag">Power BI Service</span>
+                <span class="tech-tag">Dashboard</span>
+                <span class="tech-tag">Data Visualization</span>
+                <span class="tech-tag">Business Intelligence</span>
+            </div>
+
+            <div class="image-gallery">
+                <div class="image-item">
+                    <img src="imagenes/Inicio.jpg" alt="Dashboard Principal">
+                    <h4>Dashboard Principal</h4>
+                    <p>Vista general de los KPIs principales del negocio</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Indicadores.jpg" alt="Indicadores de Rendimiento">
+                    <h4>Indicadores de Rendimiento</h4>
+                    <p>Métricas clave de performance empresarial</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Reporte.jpg" alt="Reportes Analíticos">
+                    <h4>Reportes Analíticos</h4>
+                    <p>Análisis detallado de datos operativos</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Centro_de_negocios.jpg" alt="Centro de Negocios">
+                    <h4>Centro de Negocios</h4>
+                    <p>Hub central de información empresarial</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Dashboard.jpg" alt="Dashboard Ejecutivo">
+                    <h4>Dashboard Ejecutivo</h4>
+                    <p>Vista ejecutiva para toma de decisiones estratégicas</p>
+                </div>
+            </div>
+
+            <!-- Preguntas del Negocio -->
+            <h3>Preguntas de Negocio Respondidas</h3>
+            <div class="image-gallery">
+                <div class="image-item">
+                    <img src="imagenes/Pregunta01.jpg" alt="Pregunta 1">
+                    <h4>Pregunta 1</h4>
+                    <p>Análisis de ventas por categoría de producto</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Pregunta02.jpg" alt="Pregunta 2">
+                    <h4>Pregunta 2</h4>
+                    <p>Comportamiento de clientes por región</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Pregunta03.jpg" alt="Pregunta 3">
+                    <h4>Pregunta 3</h4>
+                    <p>Tendencias estacionales de demanda</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Pregunta04.jpg" alt="Pregunta 4">
+                    <h4>Pregunta 4</h4>
+                    <p>Análisis de rentabilidad por canal</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Pregunta05.jpg" alt="Pregunta 5">
+                    <h4>Pregunta 5</h4>
+                    <p>Efectividad de campañas de marketing</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Pregunta06.jpg" alt="Pregunta 6">
+                    <h4>Pregunta 6</h4>
+                    <p>Satisfacción del cliente por servicio</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Pregunta07.jpg" alt="Pregunta 7">
+                    <h4>Pregunta 7</h4>
+                    <p>Análisis de costos operativos</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Pregunta08.jpg" alt="Pregunta 8">
+                    <h4>Pregunta 8</h4>
+                    <p>Optimización de inventarios</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Pregunta09.jpg" alt="Pregunta 9">
+                    <h4>Pregunta 9</h4>
+                    <p>Predicción de demanda futura</p>
+                </div>
+                <div class="image-item">
+                    <img src="imagenes/Pregunta10.jpg" alt="Pregunta 10">
+                    <h4>Pregunta 10</h4>
+                    <p>ROI de inversiones en tecnología</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONCLUSIONES -->
+        <div class="section">
+            <h2>Conclusiones</h2>
+            <p>La implementación de esta solución integral de Business Intelligence ha permitido a Mundo de Patas:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Automatizar los procesos de captura y procesamiento de datos</li>
+                <li>Mejorar la calidad y consistencia de la información empresarial</li>
+                <li>Proporcionar insights en tiempo real para la toma de decisiones</li>
+                <li>Reducir los tiempos de generación de reportes</li>
+                <li>Establecer una base sólida para el crecimiento y escalabilidad futura</li>
+            </ul>
+            
+            <p style="margin-top: 20px;">El proyecto demuestra la efectividad de las herramientas de Microsoft Cloud para crear soluciones empresariales modernas y eficientes.</p>
+        </div>
+    </div>
+</body>
+</html>
