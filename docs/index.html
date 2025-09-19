@@ -82,26 +82,28 @@
         }
         
         .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
             margin: 20px 0;
         }
         
         .image-item {
             text-align: center;
             background: #f8f9fa;
-            padding: 15px;
+            padding: 25px;
             border-radius: 8px;
             border: 1px solid #e9ecef;
+            width: 100%;
         }
         
         .image-item img {
-            max-width: 100%;
+            width: 100%;
+            max-width: 800px;
             height: auto;
             border-radius: 5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            margin-bottom: 15px;
         }
         
         .image-item h4 {
@@ -147,7 +149,8 @@
         }
         
         .architecture-diagram img {
-            max-width: 100%;
+            width: 100%;
+            max-width: 800px;
             height: auto;
             border: 2px solid #2E86C1;
             border-radius: 10px;
@@ -193,10 +196,10 @@
         <!-- INTRODUCCIÓN -->
         <div class="section">
             <h2>Introducción del Proyecto</h2>
-            <p>Este proyecto presenta el desarrollo de una solución integral de Business Intelligence para la empresa "Mundo de Patas", implementando una arquitectura cloud moderna utilizando las herramientas de Microsoft Azure y Power Platform, como parte de la Diplomatura de Estudio en Business Analytics 2025-01 - PUCP </p>
+            <p>Este proyecto presenta el desarrollo de una solución integral de Business Intelligence para la empresa "Mundo de Patas", implementando una arquitectura cloud moderna utilizando las herramientas de Microsoft Azure y Power Platform, como parte de la Diplomatura de Estudio en Business Analytics 2025-01 - PUCP.</p>
             
             <h3>Sobre Mundo de Patas</h3>
-            <p>Mundo de patas es una empresa e-commerce de venta de productos para mascotas, que requería la mejora y modernización de sus procesos de gestión de datos y análisis de negocio para impulsar sus ventas y tomar desiciones estratégicas basadas en datos en tiempo real.</p>
+            <p>Mundo de patas es una empresa e-commerce de venta de productos para mascotas, que requería la mejora y modernización de sus procesos de gestión de datos y análisis de negocio para impulsar sus ventas y tomar decisiones estratégicas basadas en datos en tiempo real.</p>
             
             <h3>Objetivos del Proyecto</h3>
             <p>Implementar una solución end-to-end que permita la captura, procesamiento, almacenamiento y visualización de datos empresariales, utilizando tecnologías cloud de Microsoft para garantizar escalabilidad y eficiencia operativa.</p>
@@ -208,10 +211,10 @@
             <p>Estructura de la solución cloud implementada, mostrando la integración entre todas las capas y servicios de Microsoft Azure.</p>
 
             <div class="architecture-diagram">
-                <img src="images/Diagrama_de_arquitectura.jpg" alt="Diagrama de Arquitectura">
+                <img src="imagenes/Diagrama_de_arquitectura.jpg" alt="Diagrama de Arquitectura">
             </div>
 
-            <p>El diagrama de arquitectura es una herramienta fundamental para que las partes interesadas comprendran el flujo del negocio, facilite la comunicación y mejor toma de desiciones, contiene desde la captura de datos hasta la presentación de insights de negocio.</p>
+            <p>El diagrama de arquitectura es una herramienta fundamental para que las partes interesadas comprendan el flujo del negocio, facilite la comunicación y mejor toma de decisiones, contiene desde la captura de datos hasta la presentación de insights de negocio.</p>
         </div>
 
         <!-- CAPA DE DATOS -->
@@ -229,7 +232,7 @@
 
             <div class="image-gallery">
                 <div class="image-item">
-                    <img src="images/Diagrama_ER.jpg" alt="Diagrama Entidad-Relación">
+                    <img src="imagenes/Diagrama_ER.jpg" alt="Diagrama Entidad-Relación">
                     <h4>Diagrama Entidad-Relación</h4>
                     <p>Estructura de la base de datos relacional con las entidades principales del negocio</p>
                 </div>
