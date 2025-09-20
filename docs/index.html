@@ -19,12 +19,12 @@
         }
 
         p {
-            margin-bottom: 10px; /* espaciado pedido */
-            text-align: justify; /* texto justificado */
+            margin-bottom: 10px;
+            text-align: justify;
         }
 
         ul {
-            margin-left: 20px; /* sangría para listas */
+            margin-left: 20px;
             margin-bottom: 10px;
         }
 
@@ -190,7 +190,6 @@
             font-size: 0.85em;
         }
 
-        /* responsividad ligera */
         @media (max-width: 720px) {
             .header h1 { font-size: 1.6em; }
             .image-item img { max-width: 100%; }
@@ -245,27 +244,40 @@
 
             <p><strong>Data Sources:</strong> Los datos provienen de sistemas transaccionales locales y registros de interacción (web/app) que alimentan el ecosistema analítico.</p>
             <p><strong>Data Layer:</strong> Centralización en Azure SQL Database con un modelo relacional normalizado para garantizar integridad y consulta eficiente.</p>
-            <p><strong>Application Layer:</strong> Power Apps para la captura y gestión operativa de clientes, productos y ventas.</p>
-            <p><strong>ETL Layer:</strong> Dataflows y Pipelines en Microsoft Fabric para extracción, transformación y carga, complementados con Notebooks Python para validaciones y cálculos avanzados.</p>
-            <p><strong>Data Warehouse Layer:</strong> Fabric Data Warehouse como repositorio analítico optimizado para consultas y modelado dimensional.</p>
-            <p><strong>Presentation Layer:</strong> Power BI para la construcción de dashboards interactivos y reportes ejecutivos.</p>
-            <p><strong>User Access:</strong> Accesos y roles controlados que permiten la distribución segura de la información a los usuarios adecuados.</p>
+            <p><strong>Application Layer:</strong> Se integran aplicaciones de negocio mediante Power Apps para el registro e interacción con los datos de los usuarios del negocio.</p>
+            <p><strong>ETL Layer:</strong> Se integran aplicaciones de negocio mediante Power Apps para el registro e interacción con los datos de los usuarios del negocio.</p>
+            <p><strong>Data Warehouse Layer:</strong> Los datos transformados se consolidan en un Fabric Data Warehouse, optimizado para análisis avanzado y procesamiento eficiente. Con Power Automate, se gestionan flujos de trabajo automáticos, notificaciones y tareas repetitivas que complementan el ecosistema.</p>
+            <p><strong>Presentation Layer:</strong> Los datos consolidados son consumidos por Power BI, generando dashboards y reportes interactivos que soportan la toma de decisiones.</p>
+            <p><strong>User Access:</strong> Los usuarios finales acceden a la información procesada en Power BI de manera segura y según sus roles, obteniendo reportes claros y actualizados en tiempo real.</p>
         </div>
 
         <!-- CAPA DE DATOS -->
         <div class="section">
             <h2>Capa de Datos</h2>
-            <p>La capa de datos en Azure SQL está diseñada para soportar la gestión operativa y analítica del negocio. Se modelaron tablas maestras y transaccionales que permiten trazabilidad completa desde la venta hasta el pago y envío.</p>
-
+            <p>La capa de datos del sistema de ventas de Mundo de Patas ha sido diseñada para administrar de forma eficiente los procesos de comercialización, control de clientes y gestión de transacciones en una tienda online.</p>
+            <br></br>
+            <p>El modelo contempla la trazabilidad de productos, usuarios, pagos, envíos y carritos de compra, asegurando un adecuado soporte analítico y operativo.</p>
+            <br></br>
+            <p>Esta base de datos está normalizada y distribuida en diversas tablas principales:</p>
+            
+            <p><strong>Ventas:</strong> Registra todas las transacciones realizadas por los clientes. Incluye información del usuario, los productos adquiridos, la cantidad, el precio unitario, el monto total y la fecha de la operación. Cada venta se relaciona con un pago y un envío, garantizando la trazabilidad completa del proceso de compra.</p>
+            <p><strong>Usuarios:</strong> Almacena la información personal de los clientes: nombres, apellidos, género, DNI, fecha de nacimiento, estado civil, contacto y credenciales de acceso. Cada usuario está asociado a un canal de registro y puede contar con múltiples direcciones de envío.</p>
+            <p><strong>Productos:</strong> Contiene el catálogo de artículos disponibles, incluyendo nombre, descripción, precio, stock, marca, categoría, unidad de medida y proveedor. Esta tabla se conecta con las transacciones tanto de detalle de venta como de detalle de carrito, permitiendo conocer qué productos han sido vendidos o agregados a carritos activos.</p>
+            <p><strong>Pagos:</strong> Registra los pagos asociados a cada venta, con información sobre el medio de pago utilizado, el monto abonado, la fecha y el estado del pago. Esto permite analizar las preferencias de los clientes y el cumplimiento de las obligaciones financieras.</p>
+            <p><strong>Envíos:</strong>Administra la logística de entrega de los pedidos. Incluye datos como dirección, costo de envío, fechas estimadas y reales de entrega, además del estado del despacho. Esto facilita el análisis de eficiencia en la cadena de distribución.</p>
+            <p><strong>Carrito de compras:</strong> Gestiona los productos seleccionados por los usuarios antes de concretar una compra. Almacena el estado del carrito, fecha de creación y sus detalles, como los ítems añadidos, cantidades y precios.</p>
+            <p><strong> Categorías, Marcas y Proveedores:</strong> Estructuran y enriquecen el catálogo de productos:</p>
             <ul>
-                <li><strong>Ventas:</strong> Registro de transacciones con detalle de productos, cantidades, precio y fecha.</li>
-                <li><strong>Usuarios:</strong> Información personal y de contacto de los clientes, incluyendo canales de registro.</li>
-                <li><strong>Productos:</strong> Catálogo con descripción, precio, stock, marca, categoría y proveedor.</li>
-                <li><strong>Pagos:</strong> Registro de medios de pago, montos, fechas y estado de cobro.</li>
-                <li><strong>Envíos:</strong> Información logística con fechas estimadas y reales, estado y costo.</li>
-                <li><strong>Carrito de compras:</strong> Estado y detalle de items antes de la compra final.</li>
-                <li><strong>Canales y Visitas:</strong> Seguimiento del comportamiento digital para análisis de origen y uso.</li>
+                <li>•	Categoría: clasifica los productos por tipo.</li>
+                <li>•	Marca: identifica la marca asociada al artículo.</li>
+                <li>•	Proveedor: registra los datos de los socios comerciales que abastecen la tienda.</li>
             </ul>
+            <p><strong>Canales y Visitas:</strong> Permiten el seguimiento del comportamiento digital de los clientes.</p>            
+            <ul>
+                <li>•	Canales: indican la vía de registro del usuario (ejemplo: web, app, redes).</li>
+                <li>•	Visitas: registran las interacciones de los usuarios con la plataforma, incluyendo fecha y panel visitado.</li>
+            </ul>
+            <p><strong>Modelo de datos en Azure SQL:</strong> La base de datos se encuentra diseñada para un despliegue en la nube (Azure SQL), lo que garantiza escalabilidad, seguridad y disponibilidad. Además, habilita el análisis avanzado de KPIs en tiempo real, soportando la toma de decisiones estratégicas y el diseño de tableros de control en entornos de analítica empresarial..</p>            
 
             <div class="image-gallery">
                 <div class="image-item">
