@@ -111,9 +111,12 @@
             margin-bottom: 8px;
         }
         
-        .image-item p {
+        .image-item .description {
             font-size: 0.9em;
             color: #6c757d;
+            text-align: left;
+            margin: 0 auto 15px auto;
+            max-width: 600px;
         }
         
         .file-links {
@@ -164,6 +167,14 @@
             margin: 15px 0;
         }
         
+        .tech-tag {
+            background: #2E86C1;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+
         .file-name {
             background: #e9ecef;
             color: #495057;
@@ -213,20 +224,45 @@
             <h2>Diagrama de Arquitectura</h2>
             <p>Estructura de la solución cloud implementada, mostrando la integración entre todas las capas y servicios de Microsoft Azure.</p>
 
+            <p><strong>Data Sources:</strong> Los datos provienen de una base de datos SQL local, que actúa como fuente principal de información para el ecosistema analítico.</p>
+            
+            <p><strong>Data Layer:</strong> La información se centraliza en Azure SQL Database, que permite un almacenamiento seguro, estructurado y escalable en la nube.</p>
+            
+            <p><strong>Application Layer:</strong> Se integran aplicaciones de negocio mediante Power Apps para el registro e interacción con los datos de los usuarios del negocio.</p>
+            
+            <p><strong>ETL Layer:</strong> A través de Dataflows y Pipelines en Microsoft Fabric, se gestionan los procesos de extracción, transformación y carga (ETL), automatizando el flujo de datos hacia el Data Warehouse. Python Notebooks para validaciones y procesos adicionales de análisis.</p>
+            
+            <p><strong>Data Warehouse Layer:</strong> Los datos transformados se consolidan en un Fabric Data Warehouse, optimizado para análisis avanzado y procesamiento eficiente. Con Power Automate, se gestionan flujos de trabajo automáticos, notificaciones y tareas repetitivas que complementan el ecosistema.</p>
+            
+            <p><strong>Presentation Layer:</strong> Los datos consolidados son consumidos por Power BI, generando dashboards y reportes interactivos que soportan la toma de decisiones.</p>
+            
+            <p><strong>User Access:</strong> Los usuarios finales acceden a la información procesada en Power BI de manera segura y según sus roles, obteniendo reportes claros y actualizados en tiempo real.</p>
+
             <div class="architecture-diagram">
                 <div class="file-name">📁 Archivo: Diagrama_de_arquitectura.jpg</div>
                 <img src="imagenes/Diagrama_de_arquitectura.jpg" alt="Diagrama de Arquitectura">
             </div>
-
-            <p>El diagrama de arquitectura es una herramienta fundamental para que las partes interesadas comprendan el flujo del negocio, facilite la comunicación y mejor toma de decisiones, contiene desde la captura de datos hasta la presentación de insights de negocio.</p>
         </div>
 
         <!-- CAPA DE DATOS -->
         <div class="section">
             <h2>Capa de Datos</h2>
             <p><strong>Base de Datos Relacional con Azure SQL</strong></p>
-            <p>La capa de datos constituye la base fundamental de nuestro sistema, implementada con Azure SQL Database para garantizar alta disponibilidad, seguridad y escalabilidad.</p>
-            <p>Contiene desde la creación de las tablas, los datos que conforman las tablas maestras y transaccionales, así como el diagrama entidad-relación.</p>
+            <p>La capa de datos del sistema de ventas de Mundo de Patas ha sido diseñada para administrar de forma eficiente los procesos de comercialización, control de clientes y gestión de transacciones en una tienda online. El modelo contempla la trazabilidad de productos, usuarios, pagos, envíos y carritos de compra, asegurando un adecuado soporte analítico y operativo.</p>
+            
+            <p>Esta base de datos está normalizada y distribuida en diversas tablas principales que incluyen:</p>
+            
+            <p><strong>🛒 Ventas:</strong> Registra todas las transacciones realizadas por los clientes. Incluye información del usuario, los productos adquiridos, la cantidad, el precio unitario, el monto total y la fecha de la operación.</p>
+            
+            <p><strong>👤 Usuarios:</strong> Almacena la información personal de los clientes: nombres, apellidos, género, DNI, fecha de nacimiento, estado civil, contacto y credenciales de acceso.</p>
+            
+            <p><strong>📦 Productos:</strong> Contiene el catálogo de artículos disponibles, incluyendo nombre, descripción, precio, stock, marca, categoría, unidad de medida y proveedor.</p>
+            
+            <p><strong>💳 Pagos:</strong> Registra los pagos asociados a cada venta, con información sobre el medio de pago utilizado, el monto abonado, la fecha y el estado del pago.</p>
+            
+            <p><strong>🚚 Envíos:</strong> Administra la logística de entrega de los pedidos. Incluye datos como dirección, costo de envío, fechas estimadas y reales de entrega, además del estado del despacho.</p>
+            
+            <p>El modelo se encuentra diseñado para un despliegue en Azure SQL, garantizando escalabilidad, seguridad y disponibilidad.</p>
 
             <div class="tech-stack">
                 <span class="tech-tag">Azure SQL Database</span>
@@ -237,7 +273,7 @@
             <div class="image-gallery">
                 <div class="image-item">
                     <h4>Diagrama Entidad-Relación</h4>
-                    <p>Aquí pon tu texto sobre el diagrama ER</p>
+                    <div class="description">Estructura de la base de datos relacional con las entidades principales del negocio, mostrando las relaciones entre tablas maestras y transaccionales.</div>
                     <div class="file-name">📁 Archivo: Diagrama_ER.jpg</div>
                     <img src="imagenes/Diagrama_ER.jpg" alt="Diagrama Entidad-Relación">
                 </div>
@@ -267,43 +303,55 @@
             <div class="image-gallery">
                 <div class="image-item">
                     <h4>Diagrama de Flujo de la Aplicación</h4>
-                    <p>Aquí pon tu texto sobre el diagrama de flujo</p>
+                    <div class="description">El flujo de trabajo comienza con el inicio de sesión del usuario. Luego, el sistema pregunta qué tipo de gestión va a realizar, ofreciendo tres opciones: Productos (para registrar o modificar productos, marcas y categorías), Clientes (gestión de clientes), y Ventas (proceso más complejo que incluye verificación de cliente, selección de productos, registro de pagos y envíos).</div>
                     <div class="file-name">📁 Archivo: 0.Diagrama_Flujo.jpeg</div>
                     <img src="imagenes/0.Diagrama_Flujo.jpeg" alt="Diagrama de Flujo">
                 </div>
                 <div class="image-item">
                     <h4>Pantalla Principal</h4>
-                    <p>Aquí pon tu texto sobre la pantalla principal</p>
+                    <div class="description">Es el punto de entrada principal de la aplicación, diseñado para darle al usuario acceso rápido y visual a las tres áreas clave de la empresa. Muestra el logo de "Mundo de Patas" y contiene tres botones o tarjetas intuitivas que enlazan directamente a las secciones principales: Gestión de Productos, Gestión de Clientes y Gestión de Ventas. Funciona como un centro de control centralizado y fácil de usar.</div>
                     <div class="file-name">📁 Archivo: 1.Pantalla_Principal.jpg</div>
                     <img src="imagenes/1.Pantalla_Principal.jpg" alt="Pantalla Principal">
                 </div>
                 <div class="image-item">
+                    <h4>Gestión de Productos</h4>
+                    <div class="description">Permite administrar el inventario de la tienda de manera eficiente. Incluye un panel de navegación izquierdo con lista de productos (ID, nombre, precio), detalle del producto seleccionado con información técnica y comercial, funciones de gestión (editar, eliminar, nuevo) y barra de búsqueda. Funciona como un centro de control completo para el inventario.</div>
+                    <div class="file-name">📁 Archivo: 2.Gestion_Producto.jpg</div>
+                    <img src="imagenes/2.Gestion_Producto.jpg" alt="Gestión de Productos">
+                </div>
+                <div class="image-item">
                     <h4>Gestión de Clientes</h4>
-                    <p>Aquí pon tu texto sobre la gestión de clientes</p>
-                    <div class="file-name">📁 Archivo: 2.Gestion_Cliente.jpg</div>
-                    <img src="imagenes/2.Gestion_Cliente.jpg" alt="Gestión de Clientes">
+                    <div class="description">Permite administrar la información de los clientes de manera centralizada. Incluye panel de navegación izquierdo con lista de clientes (ID único, nombre, correo), detalle del cliente con datos personales, funciones de gestión (editar, eliminar, nuevo) y búsqueda rápida. Está diseñada para ser un punto de control eficiente para el manejo de la base de datos de clientes.</div>
+                    <div class="file-name">📁 Archivo: 3.Gestion_Cliente.jpg</div>
+                    <img src="imagenes/3.Gestion_Cliente.jpg" alt="Gestión de Clientes">
+                </div>
+                <div class="image-item">
+                    <h4>Gestión de Ventas - Seleccionar Cliente</h4>
+                    <div class="description">Ventana emergente que facilita la selección de un cliente para asociarlo a una nueva venta. Incluye barra de búsqueda con filtro en tiempo real, lista de clientes con ID y nombre, y botón "Agregar" que dirige a la pantalla de "Gestión Cliente" en caso el cliente no se encuentre registrado.</div>
+                    <div class="file-name">📁 Archivo: 4.1.Gestion_Venta_SeleccionarCliente.jpg</div>
+                    <img src="imagenes/4.1.Gestion_Venta_SeleccionarCliente.jpg" alt="Gestión de Ventas - Seleccionar Cliente">
+                </div>
+                <div class="image-item">
+                    <h4>Gestión de Ventas - Seleccionar Producto</h4>
+                    <div class="description">Ventana emergente que facilita la adición de productos a una venta. Incluye barra de búsqueda por nombre o ID con filtro automático, lista de productos con ID, nombre, descripción y precio, y permite seleccionar uno o varios productos para añadir a la lista de detalles de la venta.</div>
+                    <div class="file-name">📁 Archivo: 4.2.Gestion_Venta_SeleccionarProducto.jpg</div>
+                    <img src="imagenes/4.2.Gestion_Venta_SeleccionarProducto.jpg" alt="Gestión de Ventas - Seleccionar Producto">
                 </div>
                 <div class="image-item">
                     <h4>Gestión de Ventas</h4>
-                    <p>Aquí pon tu texto sobre la gestión de ventas</p>
-                    <div class="file-name">📁 Archivo: 3.Gestion_Venta.jpg</div>
-                    <img src="imagenes/3.Gestion_Venta.jpg" alt="Gestión de Ventas">
-                </div>
-                <div class="image-item">
-                    <h4>Gestión de Productos</h4>
-                    <p>Aquí pon tu texto sobre la gestión de productos</p>
-                    <div class="file-name">📁 Archivo: 4.Gestion_Producto.jpg</div>
-                    <img src="imagenes/4.Gestion_Producto.jpg" alt="Gestión de Productos">
+                    <div class="description">Permite gestionar las ventas de la tienda como centro de control para ver, modificar y registrar nuevas transacciones. Incluye panel de navegación izquierdo con lista de ventas (ID, fecha, monto), detalle de la venta con datos completos y tabla de productos, funciones de gestión (editar, eliminar, nuevo) y botón de navegación hacia gestión de pagos.</div>
+                    <div class="file-name">📁 Archivo: 4.Gestion_Venta.jpg</div>
+                    <img src="imagenes/4.Gestion_Venta.jpg" alt="Gestión de Ventas">
                 </div>
                 <div class="image-item">
                     <h4>Gestión de Pagos</h4>
-                    <p>Aquí pon tu texto sobre la gestión de pagos</p>
+                    <div class="description">Permite administrar los pagos de una venta como punto de control para registrar, modificar o eliminar detalles de pago. Incluye panel de navegación izquierdo con ventas, detalle de la venta, detalle de pagos con tabla de información (ID, fecha, medio de pago, estado, monto), acciones de gestión y cálculo de total pagado.</div>
                     <div class="file-name">📁 Archivo: 5.Gestion_Pago.jpg</div>
                     <img src="imagenes/5.Gestion_Pago.jpg" alt="Gestión de Pagos">
                 </div>
                 <div class="image-item">
                     <h4>Gestión de Envíos</h4>
-                    <p>Aquí pon tu texto sobre la gestión de envíos</p>
+                    <div class="description">Permite administrar los envíos asociados a una venta, facilitando el seguimiento del estado y la información de entrega. Incluye panel de navegación izquierdo con ventas, detalle de la venta, detalle de envíos con tabla completa (ID, fechas, estado, costo), acciones de gestión y cálculo de costo total del envío.</div>
                     <div class="file-name">📁 Archivo: 6.Gestion_Envio.jpg</div>
                     <img src="imagenes/6.Gestion_Envio.jpg" alt="Gestión de Envíos">
                 </div>
@@ -314,7 +362,9 @@
         <div class="section">
             <h2>Capa de Extracción, Transformación y Carga (ETL)</h2>
             <p><strong>ETL y Notebooks con Python en Fabric Data Factory</strong></p>
-            <p>Implementación de procesos ETL automatizados utilizando Microsoft Fabric Data Factory y notebooks de Python para la extracción, transformación y carga de datos desde múltiples fuentes.</p>
+            <p>Este sistema utiliza un flujo de datos automatizado y eficiente que conecta múltiples capas tecnológicas del ecosistema de Microsoft. Microsoft Fabric Data Factory se encarga de la orquestación del flujo ETL, ejecutando extracción de datos de tablas transaccionales, transformación mediante limpieza y estandarización, y carga en el Fabric Data Warehouse.</p>
+            
+            <p>Al finalizar el pipeline, se ejecuta un Notebook de Python que se conecta al Data Warehouse para calcular KPIs específicos y enviar comunicación automatizada con los resultados a usuarios relevantes.</p>
 
             <div class="tech-stack">
                 <span class="tech-tag">Microsoft Fabric</span>
@@ -327,42 +377,50 @@
             <div class="image-gallery">
                 <div class="image-item">
                     <h4>Flujo de Datos ETL</h4>
-                    <p>Aquí pon tu texto sobre el flujo de datos ETL</p>
+                    <div class="description">Los datos se originan a partir de la aplicación de gestión, donde los usuarios registran información sobre Productos, Clientes y Ventas. Estos datos se guardan de forma estructurada en tablas que corresponden a cada entidad, como df_producto, df_usuario, df_venta, df_marca, df_detalleventa, df_visita, df_pago, df_envio, df_proveedor, entre otros.</div>
+                    <div class="file-name">📁 Archivo: 1.Flujo_de_datos.jpg</div>
                     <img src="imagenes/1.Flujo_de_datos.jpg" alt="Flujo de Datos">
                 </div>
                 <div class="image-item">
                     <h4>Pipeline ETL - Vista General</h4>
-                    <p>Aquí pon tu texto sobre el pipeline ETL vista general</p>
+                    <div class="description">Microsoft Fabric Data Factory se encarga de la orquestación del flujo ETL (Extracción, Transformación y Carga). Su función principal es mover los datos del origen al Data Warehouse para su posterior análisis, ejecutando los pasos de extracción, transformación y carga de manera automatizada.</div>
+                    <div class="file-name">📁 Archivo: 2.PipelineETL_Zoom1.jpg</div>
                     <img src="imagenes/2.PipelineETL_Zoom1.jpg" alt="Pipeline ETL Zoom 1">
                 </div>
                 <div class="image-item">
                     <h4>Pipeline ETL - Transformaciones</h4>
-                    <p>Aquí pon tu texto sobre las transformaciones del pipeline</p>
+                    <div class="description">El pipeline ejecuta procesos de transformación que incluyen limpieza, estandarización y enriquecimiento de los datos a través de Dataflows, preparando la información para su análisis posterior en el Data Warehouse.</div>
+                    <div class="file-name">📁 Archivo: 3.PipelineETL_Zoom2.jpg</div>
                     <img src="imagenes/3.PipelineETL_Zoom2.jpg" alt="Pipeline ETL Zoom 2">
                 </div>
                 <div class="image-item">
                     <h4>Pipeline ETL - Validaciones</h4>
-                    <p>Aquí pon tu texto sobre las validaciones del pipeline</p>
+                    <div class="description">El proceso incluye validaciones y controles de calidad de datos para asegurar la integridad y consistencia de la información que se carga en el Fabric Data Warehouse, minimizando errores y garantizando datos confiables para el análisis.</div>
+                    <div class="file-name">📁 Archivo: 4.PipelineETL_Zoom3.jpg</div>
                     <img src="imagenes/4.PipelineETL_Zoom3.jpg" alt="Pipeline ETL Zoom 3">
                 </div>
                 <div class="image-item">
                     <h4>Pipeline ETL Completo</h4>
-                    <p>Aquí pon tu texto sobre el pipeline completo</p>
+                    <div class="description">Vista completa del pipeline que muestra el flujo integral desde la extracción de datos de las fuentes originales hasta la carga final en el Data Warehouse, incluyendo todos los procesos de transformación y validación intermedia.</div>
+                    <div class="file-name">📁 Archivo: 5.Pipeline_ETL.jpg</div>
                     <img src="imagenes/5.Pipeline_ETL.jpg" alt="Pipeline ETL Completo">
                 </div>
                 <div class="image-item">
                     <h4>Notebook Python - Extracción</h4>
-                    <p>Aquí pon tu texto sobre el notebook de extracción</p>
+                    <div class="description">Al finalizar el pipeline, se ejecuta un Notebook de Python que se conecta al Data Warehouse para calcular KPIs específicos, como la tasa de conversión acumulada, un indicador clave de rendimiento de ventas del negocio.</div>
+                    <div class="file-name">📁 Archivo: 6.Notebook_1.jpg</div>
                     <img src="imagenes/6.Notebook_1.jpg" alt="Notebook Python 1">
                 </div>
                 <div class="image-item">
                     <h4>Notebook Python - Transformación</h4>
-                    <p>Aquí pon tu texto sobre el notebook de transformación</p>
+                    <div class="description">Los notebooks de Python ejecutan algoritmos de transformación, limpieza y cálculos avanzados sobre los datos, permitiendo la creación de métricas y KPIs específicos del negocio que complementan el análisis tradicional.</div>
+                    <div class="file-name">📁 Archivo: 7.Notebook_2.jpg</div>
                     <img src="imagenes/7.Notebook_2.jpg" alt="Notebook Python 2">
                 </div>
                 <div class="image-item">
                     <h4>Sistema de Notificaciones</h4>
-                    <p>Aquí pon tu texto sobre el sistema de notificaciones</p>
+                    <div class="description">El sistema incluye comunicación automatizada que envía correos electrónicos con los resultados de KPIs calculados a los usuarios o administradores relevantes, asegurando que las métricas clave lleguen de forma automática y oportuna para la toma de decisiones.</div>
+                    <div class="file-name">📁 Archivo: 8.Correo_respuesta.jpg</div>
                     <img src="imagenes/8.Correo_respuesta.jpg" alt="Sistema de Notificaciones">
                 </div>
             </div>
@@ -372,7 +430,9 @@
         <div class="section">
             <h2>Capa de Almacén de Datos</h2>
             <p><strong>Data Warehouse con Fabric Warehouse y Automatización con Power Automate</strong></p>
-            <p>Implementación de un data warehouse moderno utilizando Microsoft Fabric Warehouse, integrado con Power Automate para la automatización de procesos y flujos de trabajo.</p>
+            <p>Esta capa constituye el centro del sistema de análisis. Recibe los datos ya procesados por la capa ETL y los almacena en el Fabric Warehouse, un almacén de datos optimizado para consultas y análisis. Los datos son estructurados en un modelo dimensional que facilita la creación de reportes y la toma de decisiones.</p>
+            
+            <p>Power Automate es una herramienta de automatización de procesos de Microsoft que permite crear flujos de trabajo automáticos (workflows) que conectan diferentes aplicaciones y servicios sin necesidad de programar.</p>
 
             <div class="tech-stack">
                 <span class="tech-tag">Microsoft Fabric Warehouse</span>
@@ -384,18 +444,33 @@
             <div class="image-gallery">
                 <div class="image-item">
                     <h4>Arquitectura del Data Warehouse</h4>
-                    <p>Estructura del almacén de datos implementado</p>
+                    <div class="description">El Fabric Warehouse sirve como repositorio central de datos analíticos con un diseño que sigue un modelo semántico organizando las tablas para consulta eficiente. La estructura está optimizada para inteligencia de negocios, facilitando el análisis y visualización en herramientas como Power BI.</div>
+                    <div class="file-name">📁 Archivo: 1.Capa-de-almacen-de-datos.jpg</div>
                     <img src="imagenes/1.Capa-de-almacen-de-datos.jpg" alt="Arquitectura del Data Warehouse">
                 </div>
                 <div class="image-item">
-                    <h4>Flujo de Automatización 1</h4>
-                    <p>Proceso automatizado de carga de datos</p>
+                    <h4>Flujo de Automatización 1 - Reporte PBI Diario</h4>
+                    <div class="description">Este flujo envía un reporte programado todos los días a las 8am, enviando un correo electrónico adjuntando un PDF que contiene una hoja del Power BI mostrando el Dashboard. Garantiza que los datos en el Data Warehouse estén siempre actualizados mediante exportación automática de archivos a Power BI.</div>
+                    <div class="file-name">📁 Archivo: 2.Power_Automate1.jpg</div>
                     <img src="imagenes/2.Power_Automate1.jpg" alt="Power Automate Flow 1">
                 </div>
                 <div class="image-item">
-                    <h4>Flujo de Automatización 2</h4>
-                    <p>Automatización de notificaciones y alertas</p>
+                    <h4>Flujo de Automatización 1 - Configuración Detallada</h4>
+                    <div class="description">Detalle de la configuración del flujo automatizado que incluye la programación diaria, la conexión con Power BI, la generación del PDF y el envío del correo electrónico con el reporte adjunto.</div>
+                    <div class="file-name">📁 Archivo: 2.1.Power_Automate1_1.jpg</div>
+                    <img src="imagenes/2.1.Power_Automate1_1.jpg" alt="Power Automate Flow 1 Detalle">
+                </div>
+                <div class="image-item">
+                    <h4>Flujo de Automatización 2 - Alerta Stock</h4>
+                    <div class="description">Este flujo envía una alerta cuando se desencadena una alerta basada en datos, notificando si el stock de algún producto llega a la cantidad mínima configurada. Está diseñado para enviar alertas basadas en datos, asegurando una gestión proactiva del inventario.</div>
+                    <div class="file-name">📁 Archivo: 3.Power_Automate2.jpg</div>
                     <img src="imagenes/3.Power_Automate2.jpg" alt="Power Automate Flow 2">
+                </div>
+                <div class="image-item">
+                    <h4>Flujo de Automatización 2 - Configuración Detallada</h4>
+                    <div class="description">Configuración detallada del sistema de alertas que incluye la monitorización del stock, la definición de umbrales mínimos, la activación de alertas y el envío automático de notificaciones a los equipos relevantes.</div>
+                    <div class="file-name">📁 Archivo: 3.1.Power_Automate2_1.jpg</div>
+                    <img src="imagenes/3.1.Power_Automate2_1.jpg" alt="Power Automate Flow 2 Detalle">
                 </div>
             </div>
         </div>
@@ -416,172 +491,179 @@
             <div class="image-gallery">
                 <div class="image-item">
                     <h4>Dashboard Principal</h4>
-                    <p>Aquí pon tu texto sobre el dashboard principal</p>
+                    <div class="description">Vista general de los KPIs principales del negocio con métricas clave de rendimiento empresarial.</div>
+                    <div class="file-name">📁 Archivo: 1.Inicio.jpg</div>
                     <img src="imagenes/1.Inicio.jpg" alt="Dashboard Principal">
                 </div>
                 <div class="image-item">
                     <h4>Indicadores de Rendimiento</h4>
-                    <p>Aquí pon tu texto sobre los indicadores de rendimiento</p>
+                    <div class="description">Métricas clave de performance empresarial que permiten el monitoreo de los indicadores más importantes del negocio.</div>
+                    <div class="file-name">📁 Archivo: 2.Indicadores.jpg</div>
                     <img src="imagenes/2.Indicadores.jpg" alt="Indicadores de Rendimiento">
                 </div>
                 <div class="image-item">
                     <h4>Reportes Analíticos</h4>
-                    <p>Aquí pon tu texto sobre los reportes analíticos</p>
+                    <div class="description">Análisis detallado de datos operativos que proporciona información profunda sobre el comportamiento del negocio.</div>
+                    <div class="file-name">📁 Archivo: 3.Reporte.jpg</div>
                     <img src="imagenes/3.Reporte.jpg" alt="Reportes Analíticos">
                 </div>
                 <div class="image-item">
                     <h4>Centro de Negocios</h4>
-                    <p>Aquí pon tu texto sobre el centro de negocios</p>
+                    <div class="description">Hub central de información empresarial que consolida los datos más relevantes para la gestión del negocio.</div>
+                    <div class="file-name">📁 Archivo: 4.Caso_de_negocio.jpg</div>
                     <img src="imagenes/4.Caso_de_negocio.jpg" alt="Centro de Negocios">
                 </div>
                 <div class="image-item">
                     <h4>Dashboard Ejecutivo</h4>
-                    <p>Aquí pon tu texto sobre el dashboard ejecutivo</p>
+                    <div class="description">Vista ejecutiva para toma de decisiones estratégicas con información consolidada de alto nivel.</div>
+                    <div class="file-name">📁 Archivo: 5.Dashboard.jpg</div>
                     <img src="imagenes/5.Dashboard.jpg" alt="Dashboard Ejecutivo">
                 </div>
             </div>
 
             <!-- Preguntas del Negocio -->
             <h3>Preguntas de Negocio Respondidas</h3>
-            <div class="image-gallery single-column">
+            <p>A continuación se presentan los análisis desarrollados para responder las preguntas clave del negocio, cada uno con sus respectivos detalles y tablas de datos.</p>
+            
+            <div class="image-gallery">
                 <div class="image-item">
                     <h4>Pregunta 1</h4>
-                    <p>Aquí pon tu texto sobre la pregunta 1</p>
+                    <div class="file-name">📁 Archivo: Pregunta01.jpg</div>
                     <img src="imagenes/Pregunta01.jpg" alt="Pregunta 1">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 1 - Detalle</h4>
-                    <p>Aquí pon tu texto sobre el detalle de la pregunta 1</p>
+                    <div class="file-name">📁 Archivo: Pregunta01_Detalle.jpg</div>
                     <img src="imagenes/Pregunta01_Detalle.jpg" alt="Pregunta 1 Detalle">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 1 - Detalle Tabla</h4>
-                    <p>Aquí pon tu texto sobre la tabla detalle de la pregunta 1</p>
+                    <div class="file-name">📁 Archivo: Pregunta01_Detalle_Tabla.jpg</div>
                     <img src="imagenes/Pregunta01_Detalle_Tabla.jpg" alt="Pregunta 1 Detalle Tabla">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 2</h4>
-                    <p>Aquí pon tu texto sobre la pregunta 2</p>
+                    <div class="file-name">📁 Archivo: Pregunta02.jpg</div>
                     <img src="imagenes/Pregunta02.jpg" alt="Pregunta 2">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 2 - Detalle</h4>
-                    <p>Aquí pon tu texto sobre el detalle de la pregunta 2</p>
+                    <div class="file-name">📁 Archivo: Pregunta02_Detalle.jpg</div>
                     <img src="imagenes/Pregunta02_Detalle.jpg" alt="Pregunta 2 Detalle">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 2 - Detalle Tabla</h4>
-                    <p>Aquí pon tu texto sobre la tabla detalle de la pregunta 2</p>
+                    <div class="file-name">📁 Archivo: Pregunta02_Detalle_Tabla.jpg</div>
                     <img src="imagenes/Pregunta02_Detalle_Tabla.jpg" alt="Pregunta 2 Detalle Tabla">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 3</h4>
-                    <p>Aquí pon tu texto sobre la pregunta 3</p>
+                    <div class="file-name">📁 Archivo: Pregunta03.jpg</div>
                     <img src="imagenes/Pregunta03.jpg" alt="Pregunta 3">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 3 - Detalle</h4>
-                    <p>Aquí pon tu texto sobre el detalle de la pregunta 3</p>
+                    <div class="file-name">📁 Archivo: Pregunta03_Detalle.jpg</div>
                     <img src="imagenes/Pregunta03_Detalle.jpg" alt="Pregunta 3 Detalle">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 3 - Detalle Tabla</h4>
-                    <p>Aquí pon tu texto sobre la tabla detalle de la pregunta 3</p>
+                    <div class="file-name">📁 Archivo: Pregunta03_Detalle_Tabla.jpg</div>
                     <img src="imagenes/Pregunta03_Detalle_Tabla.jpg" alt="Pregunta 3 Detalle Tabla">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 4</h4>
-                    <p>Aquí pon tu texto sobre la pregunta 4</p>
+                    <div class="file-name">📁 Archivo: Pregunta04.jpg</div>
                     <img src="imagenes/Pregunta04.jpg" alt="Pregunta 4">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 4 - Detalle</h4>
-                    <p>Aquí pon tu texto sobre el detalle de la pregunta 4</p>
+                    <div class="file-name">📁 Archivo: Pregunta04_Detalle.jpg</div>
                     <img src="imagenes/Pregunta04_Detalle.jpg" alt="Pregunta 4 Detalle">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 4 - Detalle Tabla</h4>
-                    <p>Aquí pon tu texto sobre la tabla detalle de la pregunta 4</p>
+                    <div class="file-name">📁 Archivo: Pregunta04_Detalle_Tabla.jpg</div>
                     <img src="imagenes/Pregunta04_Detalle_Tabla.jpg" alt="Pregunta 4 Detalle Tabla">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 5</h4>
-                    <p>Aquí pon tu texto sobre la pregunta 5</p>
+                    <div class="file-name">📁 Archivo: Pregunta05.jpg</div>
                     <img src="imagenes/Pregunta05.jpg" alt="Pregunta 5">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 5 - Detalle</h4>
-                    <p>Aquí pon tu texto sobre el detalle de la pregunta 5</p>
+                    <div class="file-name">📁 Archivo: Pregunta05_Detalle.jpg</div>
                     <img src="imagenes/Pregunta05_Detalle.jpg" alt="Pregunta 5 Detalle">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 5 - Detalle Tabla</h4>
-                    <p>Aquí pon tu texto sobre la tabla detalle de la pregunta 5</p>
+                    <div class="file-name">📁 Archivo: Pregunta05_Detalle_Tabla.jpg</div>
                     <img src="imagenes/Pregunta05_Detalle_Tabla.jpg" alt="Pregunta 5 Detalle Tabla">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 6</h4>
-                    <p>Aquí pon tu texto sobre la pregunta 6</p>
+                    <div class="file-name">📁 Archivo: Pregunta06.jpg</div>
                     <img src="imagenes/Pregunta06.jpg" alt="Pregunta 6">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 6 - Detalle</h4>
-                    <p>Aquí pon tu texto sobre el detalle de la pregunta 6</p>
+                    <div class="file-name">📁 Archivo: Pregunta06_Detalle.jpg</div>
                     <img src="imagenes/Pregunta06_Detalle.jpg" alt="Pregunta 6 Detalle">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 6 - Detalle Tabla</h4>
-                    <p>Aquí pon tu texto sobre la tabla detalle de la pregunta 6</p>
+                    <div class="file-name">📁 Archivo: Pregunta06_Detalle_Tabla.jpg</div>
                     <img src="imagenes/Pregunta06_Detalle_Tabla.jpg" alt="Pregunta 6 Detalle Tabla">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 7</h4>
-                    <p>Aquí pon tu texto sobre la pregunta 7</p>
+                    <div class="file-name">📁 Archivo: Pregunta07.jpg</div>
                     <img src="imagenes/Pregunta07.jpg" alt="Pregunta 7">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 7 - Detalle</h4>
-                    <p>Aquí pon tu texto sobre el detalle de la pregunta 7</p>
+                    <div class="file-name">📁 Archivo: Pregunta07_Detalle.jpg</div>
                     <img src="imagenes/Pregunta07_Detalle.jpg" alt="Pregunta 7 Detalle">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 7 - Detalle Tabla</h4>
-                    <p>Aquí pon tu texto sobre la tabla detalle de la pregunta 7</p>
+                    <div class="file-name">📁 Archivo: Pregunta07_Detalle_Tabla.jpg</div>
                     <img src="imagenes/Pregunta07_Detalle_Tabla.jpg" alt="Pregunta 7 Detalle Tabla">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 8</h4>
-                    <p>Aquí pon tu texto sobre la pregunta 8</p>
+                    <div class="file-name">📁 Archivo: Pregunta08.jpg</div>
                     <img src="imagenes/Pregunta08.jpg" alt="Pregunta 8">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 9</h4>
-                    <p>Aquí pon tu texto sobre la pregunta 9</p>
+                    <div class="file-name">📁 Archivo: Pregunta09.jpg</div>
                     <img src="imagenes/Pregunta09.jpg" alt="Pregunta 9">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 9 - Detalle</h4>
-                    <p>Aquí pon tu texto sobre el detalle de la pregunta 9</p>
+                    <div class="file-name">📁 Archivo: Pregunta09_Detalle.jpg</div>
                     <img src="imagenes/Pregunta09_Detalle.jpg" alt="Pregunta 9 Detalle">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 9 - Detalle Tabla</h4>
-                    <p>Aquí pon tu texto sobre la tabla detalle de la pregunta 9</p>
+                    <div class="file-name">📁 Archivo: Pregunta09_Detalle_Tabla.jpg</div>
                     <img src="imagenes/Pregunta09_Detalle_Tabla.jpg" alt="Pregunta 9 Detalle Tabla">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 10</h4>
-                    <p>Aquí pon tu texto sobre la pregunta 10</p>
+                    <div class="file-name">📁 Archivo: Pregunta10.jpg</div>
                     <img src="imagenes/Pregunta10.jpg" alt="Pregunta 10">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 10 - Detalle</h4>
-                    <p>Aquí pon tu texto sobre el detalle de la pregunta 10</p>
+                    <div class="file-name">📁 Archivo: Pregunta10_Detalle.jpg</div>
                     <img src="imagenes/Pregunta10_Detalle.jpg" alt="Pregunta 10 Detalle">
                 </div>
                 <div class="image-item">
                     <h4>Pregunta 10 - Detalle Tabla</h4>
-                    <p>Aquí pon tu texto sobre la tabla detalle de la pregunta 10</p>
+                    <div class="file-name">📁 Archivo: Pregunta10_Detalle_Tabla.jpg</div>
                     <img src="imagenes/Pregunta10_Detalle_Tabla.jpg" alt="Pregunta 10 Detalle Tabla">
                 </div>
             </div>
