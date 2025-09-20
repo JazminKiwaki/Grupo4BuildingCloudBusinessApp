@@ -266,7 +266,7 @@
             <p><strong>Pagos:</strong> Registra los pagos asociados a cada venta, con información sobre el medio de pago utilizado, el monto abonado, la fecha y el estado del pago. Esto permite analizar las preferencias de los clientes y el cumplimiento de las obligaciones financieras.</p>
             <p><strong>Envíos:</strong>Administra la logística de entrega de los pedidos. Incluye datos como dirección, costo de envío, fechas estimadas y reales de entrega, además del estado del despacho. Esto facilita el análisis de eficiencia en la cadena de distribución.</p>
             <p><strong>Carrito de compras:</strong> Gestiona los productos seleccionados por los usuarios antes de concretar una compra. Almacena el estado del carrito, fecha de creación y sus detalles, como los ítems añadidos, cantidades y precios.</p>
-            <p><strong> Categorías, Marcas y Proveedores:</strong> Estructuran y enriquecen el catálogo de productos:</p>
+            <p><strong>Categorías, Marcas y Proveedores:</strong> Estructuran y enriquecen el catálogo de productos:</p>
             <ul>
                 <li>•	Categoría: clasifica los productos por tipo.</li>
                 <li>•	Marca: identifica la marca asociada al artículo.</li>
@@ -301,114 +301,299 @@
             <p>Se desarrollaron aplicaciones en Power Apps para la captura y gestión de los procesos operativos: registro de ventas, mantenimiento de catálogo de productos y gestión de clientes, con pantallas intuitivas y controles para las operaciones diarias.</p>
 
             <div class="image-gallery">
-                <div class="image-item">
-                    <h4>Diagrama de Flujo de la Aplicación</h4>
-                    <div class="description">Flujo desde el inicio de sesión hasta las acciones sobre Productos, Clientes y Ventas. Incluye validaciones y rutas según si el cliente ya está registrado y si corresponde registrar pago o envío.</div>
-                    <img src="imagenes/0.Diagrama_Flujo.jpeg" alt="Diagrama de Flujo"/>
-                </div>
+  <div class="image-item">
+    <h4>Diagrama de Flujo de la Aplicación</h4>
+    <div class="description">
+      <p>El flujo de trabajo comienza con el inicio de sesión del usuario. Luego, el sistema pregunta qué tipo de gestión va a realizar el usuario, ofreciendo tres opciones:</p>
+      <ul>
+        <li><b>Productos:</b> Si el usuario elige esta opción, el diagrama muestra el proceso para registrar o modificar productos, marcas y categorías.</li>
+        <li><b>Clientes:</b> En este caso, el flujo va a la gestión de clientes para registrar o modificar sus datos como nombre, dirección y canal.</li>
+        <li><b>Ventas:</b> Si el usuario selecciona esta opción, el proceso es más complejo:
+          <ol>
+            <li>Primero, el sistema verifica si el cliente ya está registrado.</li>
+            <li>Si el cliente no está registrado, se le pide que lo registre primero. Si ya lo está, el flujo continúa con la selección del cliente.</li>
+            <li>A continuación, el usuario selecciona los productos que se van a vender.</li>
+            <li>Luego, el sistema pregunta si se va a registrar un pago:
+              <ul>
+                <li>Si la respuesta es <b>"Sí"</b>, se registra o modifica el pago.</li>
+                <li>Si la respuesta es <b>"No"</b>, el flujo continúa.</li>
+              </ul>
+            </li>
+            <li>Por último, el sistema pregunta si se va a registrar un envío:
+              <ul>
+                <li>Si la respuesta es <b>"Sí"</b>, se registra o modifica el envío.</li>
+                <li>Si la respuesta es <b>"No"</b>, el flujo termina.</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+      </ul>
+      <p>El diagrama también muestra que, en cualquier punto, si el usuario decide no registrar una venta, el flujo puede terminar. Todo el proceso culmina en un punto final.</p>
+    </div>
+    <img src="imagenes/0.Diagrama_Flujo.jpeg" alt="Diagrama de Flujo de la Aplicación"/>
+  </div>
+</div>
+
+
+               <div class="image-item">
+  <h4>Pantalla de Inicio / Bienvenida</h4>
+  <div class="description">
+    <p><b>Propósito:</b><br>
+    Es el punto de entrada principal de la aplicación, diseñado para darle al usuario acceso rápido y visual a las tres áreas clave de la empresa: gestión de productos, clientes y ventas.</p>
+    
+    <p><b>Funcionalidades:</b></p>
+    <ul>
+      <li>Muestra el logo de la empresa, <b>"Mundo de Patas"</b>, para una clara identificación de la marca.</li>
+      <li>Contiene tres botones o tarjetas intuitivas que enlazan directamente a las secciones principales del sistema: Gestión de Productos, Gestión de Clientes y Gestión de Ventas.</li>
+      <li>Tiene un diseño limpio y directo que mejora la navegación y la experiencia de usuario.</li>
+    </ul>
+
+    <p>En resumen, esta pantalla funciona como un centro de control centralizado y fácil de usar para manejar las operaciones más importantes del negocio.</p>
+  </div>
+  <img src="imagenes/1.Pantalla_Principal.jpg" alt="Pantalla de Inicio / Bienvenida"/>
+</div>
+
 
                 <div class="image-item">
-                    <h4>Pantalla Principal</h4>
-                    <div class="description">Pantalla de entrada con tres accesos directos a las áreas: Gestión de Productos, Gestión de Clientes y Gestión de Ventas. Diseñada para facilitar la navegación y la rapidez de acceso.</div>
-                    <img src="imagenes/1.Pantalla_Principal.jpg" alt="Pantalla Principal"/>
-                </div>
+  <h4>Pantalla de Gestión de Productos</h4>
+  <div class="description">
+    <p><b>Propósito:</b><br>
+    Permitir a los usuarios administrar el inventario de la tienda de manera eficiente, facilitando la visualización, edición, eliminación y creación de nuevos productos.</p>
+    
+    <p><b>Funcionalidades:</b></p>
+    <ul>
+      <li><b>Panel de Navegación Izquierdo:</b> Muestra una lista de todos los productos disponibles, incluyendo su identificador único, nombre y precio, lo que permite una selección rápida.</li>
+      <li><b>Detalle del Producto:</b> Al seleccionar un producto, la sección principal de la derecha muestra todos sus detalles técnicos y comerciales en un formato organizado. Estos datos incluyen:
+        <ul>
+          <li>ID del producto, marca, categoría, proveedor y unidad.</li>
+          <li>Descripción del producto.</li>
+          <li>Precio, nombre y stock disponible.</li>
+        </ul>
+      </li>
+      <li><b>Funciones de Gestión:</b> En la parte superior, hay botones para realizar las acciones clave:
+        <ul>
+          <li><b>Editar:</b> Para modificar la información de un producto existente.</li>
+          <li><b>Eliminar:</b> Para remover un producto del inventario.</li>
+          <li><b>Nuevo:</b> Para agregar un nuevo producto al sistema.</li>
+        </ul>
+      </li>
+      <li><b>Búsqueda:</b> Una barra de búsqueda permite encontrar productos específicos de forma rápida.</li>
+    </ul>
+
+    <p>En resumen, esta pantalla funciona como un centro de control completo para el inventario, proporcionando las herramientas necesarias para mantener la base de datos de productos actualizada y precisa.</p>
+  </div>
+  <img src="imagenes/2.Gestion_Producto.jpg" alt="Gestión de Productos"/>
+</div>
+
+
+               <div class="image-item">
+  <h4>Pantalla de Gestión de Clientes</h4>
+  <div class="description">
+    <p><b>Propósito:</b><br>
+    Permitir a los usuarios administrar la información de los clientes de manera centralizada. La pantalla facilita la visualización, búsqueda, edición, eliminación y creación de nuevos registros.</p>
+    
+    <p><b>Funcionalidades:</b></p>
+    <ul>
+      <li><b>Panel de Navegación Izquierdo:</b> Muestra una lista de todos los clientes registrados, incluyendo un identificador único, nombre y correo electrónico. Esto facilita la selección del cliente que se desea gestionar.</li>
+      <li><b>Detalle del Cliente:</b> Al seleccionar un cliente de la lista, la sección principal de la derecha muestra todos sus datos personales en un formato claro y organizado.</li>
+      <li><b>Funciones de Gestión:</b> En la parte superior derecha, la pantalla ofrece botones para realizar las acciones clave:
+        <ul>
+          <li><b>Editar:</b> Para modificar la información de un cliente existente.</li>
+          <li><b>Eliminar:</b> Para borrar un registro de la base de datos.</li>
+          <li><b>Nuevo:</b> Para agregar un nuevo cliente al sistema.</li>
+        </ul>
+      </li>
+      <li><b>Búsqueda:</b> Incluye una barra de búsqueda para encontrar rápidamente a un cliente por su nombre, ID, u otros datos.</li>
+    </ul>
+
+    <p>En resumen, esta pantalla está diseñada para ser un punto de control eficiente para el manejo de la base de datos de clientes, ofreciendo todas las herramientas necesarias para mantener la información actualizada y organizada.</p>
+  </div>
+  <img src="imagenes/3.Gestion_Cliente.jpg" alt="Gestión de Clientes"/>
+</div>
+
+
+               <div class="image-item">
+  <h4>Pantalla de Gestión de Ventas (Pantalla Principal)</h4>
+  <div class="description">
+    <p><b>Propósito:</b><br>
+    Permitir a los usuarios gestionar las ventas de la tienda. Esta pantalla sirve como el centro de control para ver, modificar, y registrar nuevas transacciones, mostrando un resumen de cada venta y sus detalles.</p>
+    
+    <p><b>Funcionalidades:</b></p>
+    <ul>
+      <li><b>Panel de Navegación Izquierdo:</b> Muestra una lista de todas las ventas registradas con su ID, fecha y monto total. Al seleccionar una venta, los detalles se cargan en el panel principal.</li>
+      <li><b>Detalle de la Venta:</b> Al seleccionar una venta de la lista, se muestran todos sus detalles:
+        <ul>
+          <li><b>Datos de la Venta:</b> ID de la venta, ID del usuario, fecha y el total.</li>
+          <li><b>Detalle de la Venta (productos):</b> Una tabla con el ID, descripción, precio unitario, cantidad y total de cada producto en la transacción.</li>
+        </ul>
+      </li>
+      <li><b>Funciones de Gestión:</b>
+        <ul>
+          <li><b>Botones "Editar" y "Eliminar":</b> Permiten modificar o borrar una venta existente.</li>
+          <li><b>Botón "Nuevo":</b> Inicia el proceso para registrar una nueva venta.</li>
+        </ul>
+      </li>
+      <li><b>Navegación:</b> Un botón <b>"→ Pagos"</b> permite continuar el flujo de la venta hacia la gestión de pagos, siguiendo la lógica del diagrama de flujo.</li>
+    </ul>
+  </div>
+  <img src="imagenes/4.Gestion_Venta.jpg" alt="Gestión de Ventas"/>
+</div>
+
+
+               <div class="image-item">
+  <h4>Pantalla de Gestión de Ventas (Seleccionar Cliente)</h4>
+  <div class="description">
+    <p><b>Propósito:</b><br>
+    Esta ventana emergente tiene como objetivo facilitar la selección de un cliente para asociarlo a una nueva venta. Permite una búsqueda rápida para encontrar al cliente correcto sin necesidad de salir de la pantalla de gestión de ventas.</p>
+    
+    <p><b>Funcionalidades:</b></p>
+    <ul>
+      <li><b>Barra de Búsqueda:</b> El usuario puede buscar un cliente escribiendo su nombre o ID. A medida que escribe, la lista de resultados se filtra en tiempo real.</li>
+      <li><b>Lista de Clientes:</b> Muestra una lista de clientes que coinciden con la búsqueda, incluyendo su ID y nombre.</li>
+      <li><b>Selección y Acción:</b> El usuario puede seleccionar un cliente de la lista con un solo clic. El botón <b>"Agregar"</b> sirve para dirigirse a la pantalla de <b>“Gestión Cliente”</b> en caso el cliente no se encuentre registrado. En esa pantalla, al darle confirmar, lo regresará a esta pantalla de <b>“Gestión Venta”</b> para seleccionar al cliente previamente registrado.</li>
+    </ul>
+  </div>
+  <img src="imagenes/4.1.Gestion_Venta_SeleccionarCliente.jpg" alt="Pantalla de Gestión de Ventas - Seleccionar Cliente"/>
+</div>
+
 
                 <div class="image-item">
-                    <h4>Gestión de Productos</h4>
-                    <div class="description">Permite mantener el catálogo con ID, nombre, descripción, precio, stock, categoría, marca y proveedor. Incluye funciones para crear, editar y eliminar productos y una barra de búsqueda para localizar ítems rápidamente.</div>
-                    <img src="imagenes/2.Gestion_Producto.jpg" alt="Gestión de Productos"/>
-                </div>
+  <h4>Pantalla de Gestión de Ventas (Seleccionar Producto)</h4>
+  <div class="description">
+    <p><b>Propósito:</b><br>
+    Esta ventana emergente tiene como objetivo facilitar la adición de productos a una venta. Proporciona una forma eficiente de buscar y seleccionar los artículos que se van a incluir en la transacción.</p>
+    
+    <p><b>Funcionalidades:</b></p>
+    <ul>
+      <li><b>Barra de Búsqueda:</b> El usuario puede buscar un producto por su nombre o ID. La lista se filtra automáticamente para mostrar solo los productos relevantes.</li>
+      <li><b>Lista de Productos:</b> Muestra una lista de productos que coinciden con la búsqueda, incluyendo su ID, nombre, descripción y precio.</li>
+      <li><b>Selección y Adición:</b> El usuario puede seleccionar uno o varios productos. Una vez seleccionados, se añaden a la lista de detalles de la venta en la pantalla principal.</li>
+    </ul>
+  </div>
+  <img src="imagenes/4.2.Gestion_Venta_SeleccionarProducto.jpg" alt="Pantalla de Gestión de Ventas - Seleccionar Producto"/>
+</div>
+
 
                 <div class="image-item">
-                    <h4>Gestión de Clientes</h4>
-                    <div class="description">Pantalla para administrar clientes: lista de clientes con identificador, nombre y correo, vista detallada del cliente seleccionado, y acciones de edición, eliminación y creación de nuevos registros. Incluye búsqueda rápida por nombre o ID.</div>
-                    <img src="imagenes/3.Gestion_Cliente.jpg" alt="Gestión de Clientes"/>
-                </div>
+  <h4>Pantalla de Gestión de Pagos</h4>
+  <div class="description">
+    <p><b>Propósito:</b><br>
+    Permitir a los usuarios administrar los pagos de una venta. Esta pantalla es el punto de control para registrar, modificar o eliminar los detalles de cómo se ha pagado una transacción.</p>
+    
+    <p><b>Funcionalidades:</b></p>
+    <ul>
+      <li><b>Panel de Navegación Izquierdo:</b> Muestra una lista de las ventas. Al seleccionar una, el panel principal carga la información de esa venta.</li>
+      <li><b>Detalle de la Venta:</b> Muestra los datos principales de la venta, como su ID, fecha, ID de usuario y el monto total, para que el usuario sepa a qué venta le está registrando el pago.</li>
+      <li><b>Detalle de Pagos:</b> Presenta una tabla con los pagos registrados para esa venta. La tabla incluye:
+        <ul>
+          <li>ID del pago</li>
+          <li>Fecha</li>
+          <li>Medio de pago (como “Yape” o “Plin”)</li>
+          <li>Estado (como “Pagado”)</li>
+          <li>Monto pagado</li>
+        </ul>
+      </li>
+      <li><b>Acciones de Gestión:</b>
+        <ul>
+          <li><b>Botón "Agregar":</b> Permite registrar un nuevo pago para la venta seleccionada.</li>
+          <li><b>Íconos de Lápiz y Basura:</b> Para editar o eliminar un pago específico.</li>
+        </ul>
+      </li>
+      <li><b>Total Pagado:</b> La pantalla calcula y muestra el monto total que ha sido pagado hasta el momento, facilitando el control de los saldos pendientes.</li>
+    </ul>
+  </div>
+  <img src="imagenes/5.Gestion_Pago.jpg" alt="Pantalla de Gestión de Pagos"/>
+</div>
 
-                <div class="image-item">
-                    <h4>Gestión de Ventas</h4>
-                    <div class="description">Proceso que abarca selección de cliente, adición de productos, registro de pago y gestión de envío. Ofrece ventanas emergentes para seleccionar cliente y productos, y control de la transacción completa.</div>
-                    <img src="imagenes/4.Gestion_Venta.jpg" alt="Gestión de Ventas"/>
-                </div>
 
-                <div class="image-item">
-                    <h4>Seleccionar Cliente (Ventas)</h4>
-                    <div class="description">Ventana emergente para buscar y seleccionar clientes por nombre o ID, con botón para agregar nuevo cliente si no figura en el registro.</div>
-                    <img src="imagenes/4.1.Gestion_Venta_SeleccionarCliente.jpg" alt="Seleccionar Cliente"/>
-                </div>
-
-                <div class="image-item">
-                    <h4>Seleccionar Producto (Ventas)</h4>
-                    <div class="description">Ventana emergente para búsqueda y selección de productos por nombre o ID, con información de precio y stock.</div>
-                    <img src="imagenes/4.2.Gestion_Venta_SeleccionarProducto.jpg" alt="Seleccionar Producto"/>
-                </div>
-
-                <div class="image-item">
-                    <h4>Gestión de Pagos</h4>
-                    <div class="description">Pantalla para registrar pagos asociados a una venta: tabla de pagos (ID, fecha, medio, estado, monto), botones para agregar, editar y eliminar pagos, y cálculo del total pagado.</div>
-                    <img src="imagenes/5.Gestion_Pago.jpg" alt="Gestión de Pagos"/>
-                </div>
-
-                <div class="image-item">
-                    <h4>Gestión de Envíos</h4>
-                    <div class="description">Pantalla para administrar envíos con detalle de fechas, estado, costo y opciones para agregar o modificar registros de envío asociados a cada venta.</div>
-                    <img src="imagenes/6.Gestion_Envio.jpg" alt="Gestión de Envíos"/>
-                </div>
-            </div>
-
-            <div class="tech-stack">
-                <span class="tech-tag">Microsoft Power Apps</span>
-                <span class="tech-tag">Canvas Apps</span>
-                <span class="tech-tag">Model-driven Apps</span>
-                <span class="tech-tag">Power Platform</span>
-            </div>
+               <div class="image-item">
+  <h4>Pantalla de Gestión de Envíos</h4>
+  <div class="description">
+    <p><b>Propósito:</b><br>
+    Permitir a los usuarios administrar los envíos asociados a una venta. Esta pantalla facilita el seguimiento del estado y la información de la entrega de los productos.</p>
+    
+    <p><b>Funcionalidades:</b></p>
+    <ul>
+      <li><b>Panel de Navegación Izquierdo:</b> Similar a las otras pantallas, muestra una lista de ventas para seleccionar y ver sus detalles de envío.</li>
+      <li><b>Detalle de la Venta:</b> Proporciona un resumen de la venta (ID, fecha, usuario, total) para una referencia rápida.</li>
+      <li><b>Detalle de Envíos:</b> Una tabla lista los envíos de la venta. Incluye:
+        <ul>
+          <li>ID del envío</li>
+          <li>Fecha de envío</li>
+          <li>Fecha de entrega real</li>
+          <li>Estado del envío (como “Entregado”)</li>
+          <li>Costo del envío</li>
+        </ul>
+      </li>
+      <li><b>Acciones de Gestión:</b>
+        <ul>
+          <li><b>Botón "Agregar":</b> Para registrar un nuevo envío para la venta seleccionada.</li>
+          <li><b>Íconos de Lápiz y Basura:</b> Permiten editar o eliminar los datos de un envío.</li>
+        </ul>
+      </li>
+      <li><b>Costo Total del Envío:</b> Muestra la suma total de los costos de envío registrados, lo que ayuda a llevar un registro preciso.</li>
+    </ul>
+  </div>
+  <img src="imagenes/6.Gestion_Envio.jpg" alt="Pantalla de Gestión de Envíos"/>
+</div>
         </div>
 
         <!-- CAPA ETL -->
         <div class="section">
             <h2>Capa de Extracción, Transformación y Carga (ETL)</h2>
-            <p>La orquestación ETL se implementó con Microsoft Fabric Data Factory. Los pipelines automatizan la extracción de las tablas transaccionales, la transformación (limpieza y estandarización) mediante Dataflows y la carga hacia el Data Warehouse. Notebooks en Python se usan para validaciones y cálculos de KPIs.</p>
+            <p>Este sistema utiliza un flujo de datos automatizado y eficiente que conecta múltiples capas tecnológicas del ecosistema de Microsoft. Este flujo asegura la correcta integración, transformación y disponibilidad de los datos para la toma de decisiones empresariales.</p>
+            <p>Todo el proceso está diseñado para ejecutarse de forma automatizada y segura. Las conexiones utilizan credenciales protegidas y la programación de las tareas asegura su ejecución diaria o bajo demanda, reduciendo la intervención manual y los posibles errores operativos.</p>
 
             <div class="image-gallery">
                 <div class="image-item">
                     <h4>Flujo de Datos ETL</h4>
-                    <div class="description">Origen de datos desde la aplicación, transformación y carga estructurada en tablas intermedias para su posterior modelado en el Data Warehouse.</div>
+                    <div class="description">Los datos se originan a partir de la aplicación de gestión, donde los usuarios registran información sobre Productos, Clientes y Ventas. Estos datos se guardan de forma estructurada en tablas que corresponden a cada entidad, como df_producto, df_usuario, df_venta, df_marca, df_detalleventa, df_visita, df_pago, df_envio, df_proveedor, etc.</div>
                     <img src="imagenes/1.Flujo_de_datos.jpg" alt="Flujo de Datos"/>
                 </div>
 
-                <div class="image-item">
-                    <h4>Pipeline ETL - Vista General</h4>
-                    <div class="description">Vista del pipeline que orquesta los pasos de extracción, transformación y carga, garantizando latencia y consistencia de la información.</div>
-                    <img src="imagenes/2.PipelineETL_Zoom1.jpg" alt="Pipeline ETL Zoom 1"/>
-                </div>
+               <div class="image-item">
+  <h4>Pipeline ETL</h4>
+  <div class="description">
+    Microsoft Fabric Data Factory se encarga de la orquestación del flujo ETL (Extracción, Transformación y Carga). Su función principal es mover los datos del origen al Data Warehouse para su posterior análisis.</p>
+    
+    <p><b>El pipeline ejecuta los siguientes pasos:</b></p>
+    <ul>
+      <li><b>Extracción:</b> Obtiene datos de las tablas transaccionales del sistema.</li>
+      <li><b>Transformación:</b> Realiza limpieza, estandarización y enriquecimiento de los datos a través de Dataflows.</li>
+      <li><b>Carga:</b> Inserta los datos transformados en el Fabric Data Warehouse, donde se modelan para el análisis de negocio.</li>
+    </ul>
+  </div>
+  <img src="imagenes/2.PipelineETL_Zoom1.jpg" alt="Pipeline ETL - Vista General"/>
+</div>
+
 
                 <div class="image-item">
-                    <h4>Pipeline ETL - Transformaciones</h4>
-                    <div class="description">Detalle de las transformaciones: limpieza, merge, standardization y enriquecimiento de atributos para preparar el dato para análisis.</div>
                     <img src="imagenes/3.PipelineETL_Zoom2.jpg" alt="Pipeline ETL Zoom 2"/>
                 </div>
 
                 <div class="image-item">
-                    <h4>Pipeline ETL - Validaciones</h4>
-                    <div class="description">Controles de calidad y validaciones que aseguran integridad y consistencia antes de cargar al Data Warehouse.</div>
                     <img src="imagenes/4.PipelineETL_Zoom3.jpg" alt="Pipeline ETL Zoom 3"/>
                 </div>
 
                 <div class="image-item">
                     <h4>Pipeline ETL - Completo</h4>
-                    <div class="description">Visión integral del pipeline que automatiza la ingestión y preparación de datos para análisis.</div>
                     <img src="imagenes/5.Pipeline_ETL.jpg" alt="Pipeline ETL Completo"/>
                 </div>
 
-                <div class="image-item">
-                    <h4>Notebook Python - Extracción</h4>
-                    <div class="description">Notebooks que realizan consultas, transformaciones y cálculos complementarios, además de preparar datasets para KPIs.</div>
-                    <img src="imagenes/6.Notebook_1.jpg" alt="Notebook Python 1"/>
-                </div>
+               <div class="image-item">
+  <h4>Notebook Python - Extracción</h4>
+  <div class="description">
+    Al finalizar el pipeline, se ejecuta un Notebook de Python. Este script tiene un propósito clave:</p>
+    <ul>
+      <li><b>Cálculo de KPI:</b> Se conecta al Data Warehouse para calcular el KPI acumulado de la tasa de conversión, un indicador de rendimiento de ventas.</li>
+      <li><b>Comunicación Automatizada:</b> Envía un correo electrónico con el resultado del KPI a los usuarios o administradores relevantes, asegurando que las métricas clave lleguen de forma automática.</li>
+    </ul>
+  </div>
+  <img src="imagenes/6.Notebook_1.jpg" alt="Notebook Python - Extracción"/>
+</div>
+
 
                 <div class="image-item">
-                    <h4>Notebook Python - Transformación</h4>
-                    <div class="description">Ejemplos de transformaciones y cálculos realizados en Python para extender la lógica ETL y generar métricas avanzadas.</div>
                     <img src="imagenes/7.Notebook_2.jpg" alt="Notebook Python 2"/>
                 </div>
 
@@ -419,62 +604,97 @@
                 </div>
             </div>
 
-            <div class="tech-stack">
-                <span class="tech-tag">Microsoft Fabric</span>
-                <span class="tech-tag">Data Factory</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Jupyter Notebooks</span>
-            </div>
-        </div>
 
         <!-- CAPA DE ALMACÉN -->
         <div class="section">
             <h2>Capa de Almacén de Datos</h2>
-            <p>El Fabric Data Warehouse funciona como el repositorio analítico central. Los datos transformados son modelados en esquemas dimensionales para facilitar consultas analíticas y la construcción de medidas en Power BI. Power Automate aporta automatización adicional (reportes programados y alertas).</p>
+            <p>Esta capa constituye el centro del sistema de análisis. Recibe los datos ya procesados por la capa ETL y los almacena en el Fabric Warehouse, un almacén de datos optimizado para consultas y análisis. Aquí, los datos son estructurados en un modelo dimensional que facilita la creación de reportes y la toma de decisiones. Power Automate aporta automatización adicional (reportes programados y alertas).</p>
 
             <div class="image-gallery">
-                <div class="image-item">
-                    <h4>Arquitectura del Data Warehouse</h4>
-                    <div class="description">Modelo dimensional y semántico que soporta consultas eficientes y una capa analítica para Power BI.</div>
-                    <img src="imagenes/1.Capa-de-almacen-de-datos.jpg" alt="Arquitectura del Data Warehouse"/>
-                </div>
+  <div class="image-item">
+    <h4>Arquitectura del Data Warehouse con Fabric Warehouse 🏗️</h4>
+    <div class="description">
+      <p>El Fabric Warehouse sirve como el repositorio central de datos analíticos. Su diseño sigue un modelo semántico que organiza las tablas para una consulta eficiente.</p>
+      <ul>
+        <li><b>Estructura Lógica:</b> El diagrama muestra un modelo de datos con múltiples tablas, cada una representando una entidad de negocio (como venta, producto, cliente). Estas tablas están interconectadas para reflejar las relaciones del negocio, lo que permite consultas complejas y la construcción de medidas calculadas de forma ágil.</li>
+        <li><b>Modelo Dimensional:</b> La estructura está optimizada para la inteligencia de negocios (BI), lo que significa que los datos están listos para ser usados en herramientas como Power BI, facilitando el análisis y la visualización.</li>
+      </ul>
+    </div>
+    <img src="imagenes/1.Capa-de-almacen-de-datos.jpg" alt="Arquitectura del Data Warehouse con Fabric Warehouse"/>
+  </div>
+</div>
+
 
                 <div class="image-item">
-                    <h4>Flujo de Automatización 1 - Reporte PBI Diario</h4>
-                    <div class="description">Flujo programado que exporta un reporte de Power BI a PDF y lo envía por correo diariamente, asegurando la disponibilidad de información para stakeholders.</div>
-                    <img src="imagenes/2.Power_Automate1.jpg" alt="Power Automate Flow 1"/>
-                </div>
+  <h4>Flujo de Automatización 1 - Carga de Datos</h4>
+  <div class="description">
+    <p><b>Este flujo garantiza que los datos en el Data Warehouse estén siempre actualizados.</b> Se activa periódicamente para:</p>
+    <ul>
+      <li><b>Exportar un Archivo a Power BI:</b> Extrae los datos más recientes del almacén de datos y los exporta a un archivo de Power BI, lo que permite que los informes y paneles se actualicen automáticamente.</li>
+      <li><b>Enviar Correo Electrónico:</b> Envía notificaciones por correo electrónico a los usuarios o administradores, confirmando que la actualización de datos se ha realizado con éxito.</li>
+    </ul>
+  </div>
+  <img src="imagenes/2.Power_Automate1.jpg" alt="Flujo de Automatización 1 - Carga de Datos"/>
+</div>
 
                 <div class="image-item">
-                    <h4>Flujo de Automatización 1 - Configuración Detallada</h4>
-                    <div class="description">Detalle de las conexiones y pasos del flujo que generan y entregan el reporte automáticamente.</div>
                     <img src="imagenes/2.1.Power_Automate1_1.jpg" alt="Power Automate Flow 1 Detalle"/>
                 </div>
 
                 <div class="image-item">
-                    <h4>Flujo de Automatización 2 - Alerta Stock</h4>
-                    <div class="description">Flujo que detecta niveles de stock críticos y envía alertas proactivas a responsables para reabastecimiento.</div>
-                    <img src="imagenes/3.Power_Automate2.jpg" alt="Power Automate Flow 2"/>
-                </div>
+                    
+                   <div class="image-item">
+  <h4>Flujo de Automatización 2 - Notificaciones y Alertas</h4>
+  <div class="description">
+    <p><b>Este flujo está diseñado para enviar alertas basadas en datos, asegurando una gestión proactiva.</b> Por ejemplo, podría estar configurado para:</p>
+    <ul>
+      <li><b>Desencadenar una Alerta:</b> Activa una acción cuando una condición específica en los datos se cumple (ej., el stock de un producto cae por debajo de un umbral).</li>
+      <li><b>Enviar Correo Electrónico:</b> Notifica a los equipos relevantes sobre la alerta, permitiéndoles tomar medidas inmediatas.</li>
+    </ul>
+  </div>
+  <img src="imagenes/3.Power_Automate2.jpg" alt="Flujo de Automatización 2 - Notificaciones y Alertas"/>
+</div>
+
 
                 <div class="image-item">
-                    <h4>Flujo de Automatización 2 - Configuración Detallada</h4>
-                    <div class="description">Configuración del trigger, condiciones y acciones que componen la automatización de alertas.</div>
                     <img src="imagenes/3.1.Power_Automate2_1.jpg" alt="Power Automate Flow 2 Detalle"/>
                 </div>
             </div>
 
-            <div class="tech-stack">
-                <span class="tech-tag">Microsoft Fabric Warehouse</span>
-                <span class="tech-tag">Power Automate</span>
-                <span class="tech-tag">Modelado Dimensional</span>
-            </div>
-        </div>
-
         <!-- CAPA DE PRESENTACIÓN -->
         <div class="section">
-            <h2>Capa de Presentación</h2>
-            <p>En la capa de presentación se construyeron dashboards interactivos en Power BI que permiten explorar KPIs, tendencias y métricas operativas para la toma de decisiones. Los reportes combinan visualizaciones agregadas y detalles transaccionales para distintos perfiles de usuario.</p>
+  <h2>Capa de Presentación</h2>
+  <p>
+    La capa de presentación constituye el componente terminal del ecosistema de inteligencia empresarial, donde la información procesada se transforma en un recurso estratégico y operativo de alto valor para la organización. Esta capa no se limita únicamente a la exposición de datos, sino que los convierte en conocimiento accionable mediante interfaces intuitivas y herramientas de análisis visual avanzadas.
+  </p>
+  
+  <p><b>En Mundo de Patas, esta capa se estructura en dos niveles:</b></p>
+  <ul>
+    <li><b>Nivel Operativo (Power Apps):</b> Implementa una aplicación integral de gestión con módulos de Clientes, Productos, Ventas, Pagos y Envíos, optimizando tiempos de registro y garantizando trazabilidad. Incluye pantallas para inicio, gestión de productos, clientes, ventas, pagos y envíos, con navegación intuitiva y experiencia de usuario eficiente.</li>
+    <li><b>Nivel Analítico (Power BI):</b> Los datos del Data Warehouse se materializan en dashboards interactivos, entre ellos:
+      <ul>
+        <li><b>Dashboard Principal:</b> Vista integral de KPIs.</li>
+        <li><b>Indicadores de Rendimiento:</b> Métricas críticas de desempeño.</li>
+        <li><b>Reportes Analíticos:</b> Análisis multidimensional y granular.</li>
+        <li><b>Centro de Negocios:</b> Hub centralizado de información estratégica.</li>
+        <li><b>Dashboard Ejecutivo:</b> Soporte para decisiones directivas.</li>
+      </ul>
+    </li>
+  </ul>
+  
+  <p><b>Capacidades Analíticas:</b></p>
+  <ul>
+    <li>Visualización de KPIs en tiempo real.</li>
+    <li>Análisis de patrones de clientes y tendencias.</li>
+    <li>Centralización de información crítica.</li>
+  </ul>
+  
+  <p><b>Requerimientos de Negocio:</b><br>
+  El sistema ofrece reportes especializados con visualizaciones personalizadas, tablas detalladas y drill-down multi-nivel, respondiendo a preguntas específicas del negocio.</p>
+  
+  <p><b>Impacto:</b><br>
+  La arquitectura asegura que la información llegue al usuario correcto, en el momento oportuno y en formatos claros, optimizando la toma de decisiones en todos los niveles de la organización.</p>
+</div>
 
             <div class="image-gallery">
                 <div class="image-item">
@@ -496,7 +716,7 @@
                 </div>
 
                 <div class="image-item">
-                    <h4>Centro de Negocios</h4>
+                    <h4>Caso de Negocio</h4>
                     <div class="description">Hub central que consolida la información estratégica para la operación y dirección.</div>
                     <img src="imagenes/4.Caso_de_negocio.jpg" alt="Centro de Negocios"/>
                 </div>
@@ -634,19 +854,42 @@
 
         <!-- CONCLUSIONES -->
         <div class="section">
-            <h2>Conclusiones</h2>
-            <p>La implementación del ecosistema analítico integral para Mundo de Patas demuestra la convergencia efectiva entre tecnologías cloud y herramientas de la Power Platform para transformar procesos operativos y de análisis.</p>
+  <h2>Conclusiones</h2>
+  <p>
+    La implementación del ecosistema analítico integral para <b>Mundo de Patas</b> constituye una demostración empírica de cómo la convergencia de tecnologías cloud y herramientas de la Power Platform puede generar una transformación sustancial en la gestión de organizaciones digitales. Los resultados obtenidos evidencian logros significativos en múltiples dimensiones:
+  </p>
 
-            <ul>
-                <li>Optimización operativa mediante automatización de procesos de ventas, pagos y envíos.</li>
-                <li>Mejora en la calidad y consistencia de la información con un modelo de datos estructurado en Azure SQL y Fabric Warehouse.</li>
-                <li>Disponibilidad de insights y dashboards en tiempo real para la toma de decisiones.</li>
-                <li>Escalabilidad y sostenibilidad en la arquitectura para soportar crecimiento de datos y usuarios.</li>
-                <li>Automatización inteligente con Power Automate para alertas y distribución de reportes.</li>
-            </ul>
+  <ul>
+    <li><b>Optimización operativa:</b> La automatización de procesos de ventas, pagos y envíos reduce los errores manuales y agiliza la atención al cliente.</li>
+    <li><b>Calidad y consistencia de la información:</b> Los datos se gestionan bajo un esquema estructurado en Azure SQL y un modelo dimensional en el Data Warehouse, lo que garantiza fiabilidad en los reportes.</li>
+    <li><b>Soporte a la toma de decisiones:</b> Los tableros de Power BI proporcionan visibilidad integral del negocio, facilitando la identificación de oportunidades de mejora y crecimiento.</li>
+    <li><b>Escalabilidad y sostenibilidad:</b> El sistema ha sido diseñado para adaptarse al incremento de datos y usuarios, asegurando su vigencia a futuro.</li>
+    <li><b>Automatización Inteligente:</b> La implementación de Power Automate permite la gestión de flujos de trabajo automáticos, incluyendo:
+      <ul>
+        <li>Envío automatizado de reportes diarios.</li>
+        <li>Notificaciones de alertas de stock crítico.</li>
+        <li>Distribución automática de informes a responsables de negocio.</li>
+        <li>Trazabilidad y comunicación efectiva del estado de los procesos.</li>
+      </ul>
+    </li>
+    <li><b>Impacto Estratégico:</b> La empresa cuenta ahora con un ecosistema digital alineado a las demandas del e-commerce moderno, reforzando su competitividad en el mercado. El proyecto logra:
+      <ul>
+        <li>Transformación de Procesos.</li>
+        <li>Capacidad Analítica Avanzada.</li>
+        <li>Integración Tecnológica.</li>
+      </ul>
+    </li>
+  </ul>
 
-            <p>Esta solución no solo responde a una necesidad académica, sino que evidencia la aplicabilidad de soluciones BI en escenarios reales de e-commerce, estableciendo una base para mejoras continuas y futuros desarrollos.</p>
-        </div>
+  <p>
+    Este proyecto no solo responde a una necesidad académica, sino que demuestra la aplicabilidad de las soluciones de inteligencia de negocios en escenarios reales. <b>Mundo de Patas</b> se convierte así en un caso representativo de cómo la tecnología puede transformar la gestión empresarial y servir como base para investigaciones.
+  </p>
+
+  <p>
+    La solución implementada establece un precedente para empresas del sector e-commerce que busquen modernizar sus operaciones mediante la adopción de tecnologías cloud y herramientas de análisis avanzado, demostrando que es posible lograr una transformación digital integral con herramientas accesibles y escalables.
+  </p>
+</div>
+
     </div>
 </body>
 </html>
