@@ -212,19 +212,19 @@
         <div class="section">
             <h2>Diagrama de Arquitectura</h2>
             <p>Estructura de la solución cloud implementada, mostrando la integración entre todas las capas y servicios de Microsoft Azure.</p>
-            <p> </p>
+            <br>
             <p><strong>Data Sources:</strong> Los datos provienen de una base de datos SQL local, que actúa como fuente principal de información para el ecosistema analítico.</p>
-            <p> </p>
+            <br>
             <p><strong>Data Layer:</strong> La información se centraliza en Azure SQL Database, que permite un almacenamiento seguro, estructurado y escalable en la nube.</p>
-            <p></p>
+            <br>
             <p><strong>Application Layer:</strong> Se integran aplicaciones de negocio mediante Power Apps para el registro e interacción con los datos de los usuarios del negocio.</p>
-            <p></p>
+            <br>
             <p><strong>ETL Layer:</strong> A través de Dataflows y Pipelines en Microsoft Fabric, se gestionan los procesos de extracción, transformación y carga (ETL), automatizando el flujo de datos hacia el Data Warehouse. Python Notebooks para validaciones y procesos adicionales de análisis.</p>
-            <p></p>
+            <br>
             <p><strong>Data Warehouse Layer:</strong> Los datos transformados se consolidan en un Fabric Data Warehouse, optimizado para análisis avanzado y procesamiento eficiente. Con Power Automate, se gestionan flujos de trabajo automáticos, notificaciones y tareas repetitivas que complementan el ecosistema.</p>
-            <p></p>
+            <br>
             <p><strong>Presentation Layer:</strong> Los datos consolidados son consumidos por Power BI, generando dashboards y reportes interactivos que soportan la toma de decisiones.</p>
-            <p></p>
+            <br>
             <p><strong>User Access:</strong> Los usuarios finales acceden a la información procesada en Power BI de manera segura y según sus roles, obteniendo reportes claros y actualizados en tiempo real.</p>
 
             <div class="architecture-diagram">
