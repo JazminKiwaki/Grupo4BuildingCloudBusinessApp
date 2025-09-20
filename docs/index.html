@@ -174,17 +174,6 @@
             border-radius: 15px;
             font-size: 0.85em;
         }
-
-        .file-name {
-            background: #e9ecef;
-            color: #495057;
-            padding: 8px 12px;
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85em;
-            margin-bottom: 10px;
-            border-left: 3px solid #2E86C1;
-        }
     </style>
 </head>
 <body>
@@ -239,7 +228,6 @@
             <p><strong>User Access:</strong> Los usuarios finales acceden a la información procesada en Power BI de manera segura y según sus roles, obteniendo reportes claros y actualizados en tiempo real.</p>
 
             <div class="architecture-diagram">
-                <div class="file-name">📁 Archivo: Diagrama_de_arquitectura.jpg</div>
                 <img src="imagenes/Diagrama_de_arquitectura.jpg" alt="Diagrama de Arquitectura">
             </div>
         </div>
@@ -274,7 +262,6 @@
                 <div class="image-item">
                     <h4>Diagrama Entidad-Relación</h4>
                     <div class="description">Estructura de la base de datos relacional con las entidades principales del negocio, mostrando las relaciones entre tablas maestras y transaccionales.</div>
-                    <div class="file-name">📁 Archivo: Diagrama_ER.jpg</div>
                     <img src="imagenes/Diagrama_ER.jpg" alt="Diagrama Entidad-Relación">
                 </div>
             </div>
@@ -304,55 +291,46 @@
                 <div class="image-item">
                     <h4>Diagrama de Flujo de la Aplicación</h4>
                     <div class="description">El flujo de trabajo comienza con el inicio de sesión del usuario. Luego, el sistema pregunta qué tipo de gestión va a realizar, ofreciendo tres opciones: Productos (para registrar o modificar productos, marcas y categorías), Clientes (gestión de clientes), y Ventas (proceso más complejo que incluye verificación de cliente, selección de productos, registro de pagos y envíos).</div>
-                    <div class="file-name">📁 Archivo: 0.Diagrama_Flujo.jpeg</div>
                     <img src="imagenes/0.Diagrama_Flujo.jpeg" alt="Diagrama de Flujo">
                 </div>
                 <div class="image-item">
                     <h4>Pantalla Principal</h4>
                     <div class="description">Es el punto de entrada principal de la aplicación, diseñado para darle al usuario acceso rápido y visual a las tres áreas clave de la empresa. Muestra el logo de "Mundo de Patas" y contiene tres botones o tarjetas intuitivas que enlazan directamente a las secciones principales: Gestión de Productos, Gestión de Clientes y Gestión de Ventas. Funciona como un centro de control centralizado y fácil de usar.</div>
-                    <div class="file-name">📁 Archivo: 1.Pantalla_Principal.jpg</div>
                     <img src="imagenes/1.Pantalla_Principal.jpg" alt="Pantalla Principal">
                 </div>
                 <div class="image-item">
                     <h4>Gestión de Productos</h4>
                     <div class="description">Permite administrar el inventario de la tienda de manera eficiente. Incluye un panel de navegación izquierdo con lista de productos (ID, nombre, precio), detalle del producto seleccionado con información técnica y comercial, funciones de gestión (editar, eliminar, nuevo) y barra de búsqueda. Funciona como un centro de control completo para el inventario.</div>
-                    <div class="file-name">📁 Archivo: 2.Gestion_Producto.jpg</div>
                     <img src="imagenes/2.Gestion_Producto.jpg" alt="Gestión de Productos">
                 </div>
                 <div class="image-item">
                     <h4>Gestión de Clientes</h4>
                     <div class="description">Permite administrar la información de los clientes de manera centralizada. Incluye panel de navegación izquierdo con lista de clientes (ID único, nombre, correo), detalle del cliente con datos personales, funciones de gestión (editar, eliminar, nuevo) y búsqueda rápida. Está diseñada para ser un punto de control eficiente para el manejo de la base de datos de clientes.</div>
-                    <div class="file-name">📁 Archivo: 3.Gestion_Cliente.jpg</div>
                     <img src="imagenes/3.Gestion_Cliente.jpg" alt="Gestión de Clientes">
                 </div>
                 <div class="image-item">
                     <h4>Gestión de Ventas - Seleccionar Cliente</h4>
                     <div class="description">Ventana emergente que facilita la selección de un cliente para asociarlo a una nueva venta. Incluye barra de búsqueda con filtro en tiempo real, lista de clientes con ID y nombre, y botón "Agregar" que dirige a la pantalla de "Gestión Cliente" en caso el cliente no se encuentre registrado.</div>
-                    <div class="file-name">📁 Archivo: 4.1.Gestion_Venta_SeleccionarCliente.jpg</div>
                     <img src="imagenes/4.1.Gestion_Venta_SeleccionarCliente.jpg" alt="Gestión de Ventas - Seleccionar Cliente">
                 </div>
                 <div class="image-item">
                     <h4>Gestión de Ventas - Seleccionar Producto</h4>
                     <div class="description">Ventana emergente que facilita la adición de productos a una venta. Incluye barra de búsqueda por nombre o ID con filtro automático, lista de productos con ID, nombre, descripción y precio, y permite seleccionar uno o varios productos para añadir a la lista de detalles de la venta.</div>
-                    <div class="file-name">📁 Archivo: 4.2.Gestion_Venta_SeleccionarProducto.jpg</div>
                     <img src="imagenes/4.2.Gestion_Venta_SeleccionarProducto.jpg" alt="Gestión de Ventas - Seleccionar Producto">
                 </div>
                 <div class="image-item">
                     <h4>Gestión de Ventas</h4>
                     <div class="description">Permite gestionar las ventas de la tienda como centro de control para ver, modificar y registrar nuevas transacciones. Incluye panel de navegación izquierdo con lista de ventas (ID, fecha, monto), detalle de la venta con datos completos y tabla de productos, funciones de gestión (editar, eliminar, nuevo) y botón de navegación hacia gestión de pagos.</div>
-                    <div class="file-name">📁 Archivo: 4.Gestion_Venta.jpg</div>
                     <img src="imagenes/4.Gestion_Venta.jpg" alt="Gestión de Ventas">
                 </div>
                 <div class="image-item">
                     <h4>Gestión de Pagos</h4>
                     <div class="description">Permite administrar los pagos de una venta como punto de control para registrar, modificar o eliminar detalles de pago. Incluye panel de navegación izquierdo con ventas, detalle de la venta, detalle de pagos con tabla de información (ID, fecha, medio de pago, estado, monto), acciones de gestión y cálculo de total pagado.</div>
-                    <div class="file-name">📁 Archivo: 5.Gestion_Pago.jpg</div>
                     <img src="imagenes/5.Gestion_Pago.jpg" alt="Gestión de Pagos">
                 </div>
                 <div class="image-item">
                     <h4>Gestión de Envíos</h4>
                     <div class="description">Permite administrar los envíos asociados a una venta, facilitando el seguimiento del estado y la información de entrega. Incluye panel de navegación izquierdo con ventas, detalle de la venta, detalle de envíos con tabla completa (ID, fechas, estado, costo), acciones de gestión y cálculo de costo total del envío.</div>
-                    <div class="file-name">📁 Archivo: 6.Gestion_Envio.jpg</div>
                     <img src="imagenes/6.Gestion_Envio.jpg" alt="Gestión de Envíos">
                 </div>
             </div>
@@ -378,49 +356,41 @@
                 <div class="image-item">
                     <h4>Flujo de Datos ETL</h4>
                     <div class="description">Los datos se originan a partir de la aplicación de gestión, donde los usuarios registran información sobre Productos, Clientes y Ventas. Estos datos se guardan de forma estructurada en tablas que corresponden a cada entidad, como df_producto, df_usuario, df_venta, df_marca, df_detalleventa, df_visita, df_pago, df_envio, df_proveedor, entre otros.</div>
-                    <div class="file-name">📁 Archivo: 1.Flujo_de_datos.jpg</div>
                     <img src="imagenes/1.Flujo_de_datos.jpg" alt="Flujo de Datos">
                 </div>
                 <div class="image-item">
                     <h4>Pipeline ETL - Vista General</h4>
                     <div class="description">Microsoft Fabric Data Factory se encarga de la orquestación del flujo ETL (Extracción, Transformación y Carga). Su función principal es mover los datos del origen al Data Warehouse para su posterior análisis, ejecutando los pasos de extracción, transformación y carga de manera automatizada.</div>
-                    <div class="file-name">📁 Archivo: 2.PipelineETL_Zoom1.jpg</div>
                     <img src="imagenes/2.PipelineETL_Zoom1.jpg" alt="Pipeline ETL Zoom 1">
                 </div>
                 <div class="image-item">
                     <h4>Pipeline ETL - Transformaciones</h4>
                     <div class="description">El pipeline ejecuta procesos de transformación que incluyen limpieza, estandarización y enriquecimiento de los datos a través de Dataflows, preparando la información para su análisis posterior en el Data Warehouse.</div>
-                    <div class="file-name">📁 Archivo: 3.PipelineETL_Zoom2.jpg</div>
                     <img src="imagenes/3.PipelineETL_Zoom2.jpg" alt="Pipeline ETL Zoom 2">
                 </div>
                 <div class="image-item">
                     <h4>Pipeline ETL - Validaciones</h4>
                     <div class="description">El proceso incluye validaciones y controles de calidad de datos para asegurar la integridad y consistencia de la información que se carga en el Fabric Data Warehouse, minimizando errores y garantizando datos confiables para el análisis.</div>
-                    <div class="file-name">📁 Archivo: 4.PipelineETL_Zoom3.jpg</div>
                     <img src="imagenes/4.PipelineETL_Zoom3.jpg" alt="Pipeline ETL Zoom 3">
                 </div>
                 <div class="image-item">
                     <h4>Pipeline ETL Completo</h4>
                     <div class="description">Vista completa del pipeline que muestra el flujo integral desde la extracción de datos de las fuentes originales hasta la carga final en el Data Warehouse, incluyendo todos los procesos de transformación y validación intermedia.</div>
-                    <div class="file-name">📁 Archivo: 5.Pipeline_ETL.jpg</div>
                     <img src="imagenes/5.Pipeline_ETL.jpg" alt="Pipeline ETL Completo">
                 </div>
                 <div class="image-item">
                     <h4>Notebook Python - Extracción</h4>
                     <div class="description">Al finalizar el pipeline, se ejecuta un Notebook de Python que se conecta al Data Warehouse para calcular KPIs específicos, como la tasa de conversión acumulada, un indicador clave de rendimiento de ventas del negocio.</div>
-                    <div class="file-name">📁 Archivo: 6.Notebook_1.jpg</div>
                     <img src="imagenes/6.Notebook_1.jpg" alt="Notebook Python 1">
                 </div>
                 <div class="image-item">
                     <h4>Notebook Python - Transformación</h4>
                     <div class="description">Los notebooks de Python ejecutan algoritmos de transformación, limpieza y cálculos avanzados sobre los datos, permitiendo la creación de métricas y KPIs específicos del negocio que complementan el análisis tradicional.</div>
-                    <div class="file-name">📁 Archivo: 7.Notebook_2.jpg</div>
                     <img src="imagenes/7.Notebook_2.jpg" alt="Notebook Python 2">
                 </div>
                 <div class="image-item">
                     <h4>Sistema de Notificaciones</h4>
                     <div class="description">El sistema incluye comunicación automatizada que envía correos electrónicos con los resultados de KPIs calculados a los usuarios o administradores relevantes, asegurando que las métricas clave lleguen de forma automática y oportuna para la toma de decisiones.</div>
-                    <div class="file-name">📁 Archivo: 8.Correo_respuesta.jpg</div>
                     <img src="imagenes/8.Correo_respuesta.jpg" alt="Sistema de Notificaciones">
                 </div>
             </div>
@@ -445,6 +415,29 @@
                 <div class="image-item">
                     <h4>Arquitectura del Data Warehouse</h4>
                     <div class="description">El Fabric Warehouse sirve como repositorio central de datos analíticos con un diseño que sigue un modelo semántico organizando las tablas para consulta eficiente. La estructura está optimizada para inteligencia de negocios, facilitando el análisis y visualización en herramientas como Power BI.</div>
+                    <img src="imagenes/1.Capa-de-almacen-de-datos.jpg" alt="Arquitectura del Data Warehouse">
+                </div>
+                <div class="image-item">
+                    <h4>Flujo de Automatización 1 - Reporte PBI Diario</h4>
+                    <div class="description">Este flujo envía un reporte programado todos los días a las 8am, enviando un correo electrónico adjuntando un PDF que contiene una hoja del Power BI mostrando el Dashboard. Garantiza que los datos en el Data Warehouse estén siempre actualizados mediante exportación automática de archivos a Power BI.</div>
+                    <img src="imagenes/2.Power_Automate1.jpg" alt="Power Automate Flow 1">
+                </div>
+                <div class="image-item">
+                    <h4>Flujo de Automatización 1 - Configuración Detallada</h4>
+                    <div class="description">Detalle de la configuración del flujo automatizado que incluye la programación diaria, la conexión con Power BI, la generación del PDF y el envío del correo electrónico con el reporte adjunto.</div>
+                    <img src="imagenes/2.1.Power_Automate1_1.jpg" alt="Power Automate Flow 1 Detalle">
+                </div>
+                <div class="image-item">
+                    <h4>Flujo de Automatización 2 - Alerta Stock</h4>
+                    <div class="description">Este flujo envía una alerta cuando se desencadena una alerta basada en datos, notificando si el stock de algún producto llega a la cantidad mínima configurada. Está diseñado para enviar alertas basadas en datos, asegurando una gestión proactiva del inventario.</div>
+                    <img src="imagenes/3.Power_Automate2.jpg" alt="Power Automate Flow 2">
+                </div>
+                <div class="image-item">
+                    <h4>Flujo de Automatización 2 - Configuración Detallada</h4>
+                    <div class="description">Configuración detallada del sistema de alertas que incluye la monitorización del stock, la definición de umbrales mínimos, la activación de alertas y el envío automático de notificaciones a los equipos relevantes.</div>
+                    <img src="imagenes/3.1.Power_Automate2_1.jpg" alt="Power Automate Flow 2 Detalle">
+                </div>
+            </div>ando las tablas para consulta eficiente. La estructura está optimizada para inteligencia de negocios, facilitando el análisis y visualización en herramientas como Power BI.</div>
                     <div class="file-name">📁 Archivo: 1.Capa-de-almacen-de-datos.jpg</div>
                     <img src="imagenes/1.Capa-de-almacen-de-datos.jpg" alt="Arquitectura del Data Warehouse">
                 </div>
